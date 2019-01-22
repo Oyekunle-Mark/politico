@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background: #5AAF5D;
+}
+
+header h1 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    margin: 0;
+    font-size: 4rem;
+    padding: 0.3rem 1.5rem 0.8rem 1rem;
+}
