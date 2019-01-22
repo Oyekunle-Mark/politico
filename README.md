@@ -7,5 +7,5 @@ This project is a voting app with support for:
 * Petitions after elections
 * Viewing election result
 
-###### Author
+#### Author
 **Oyekunle Oloyede**
