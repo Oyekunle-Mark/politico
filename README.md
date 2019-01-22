@@ -8,4 +8,4 @@ This project is a voting app with support for:
 * Viewing election result
 
 #### Author
-**Oyekunle Oloyede**
+*Oyekunle Oloyede*
