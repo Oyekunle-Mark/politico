@@ -2,7 +2,7 @@ body {
     margin: 0;
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
-    color: white;
+    color: #F5FAF5;
     background: #5AAF5D;
 }
 
@@ -12,3 +12,57 @@ header h1 {
     font-size: 4rem;
     padding: 0.3rem 1.5rem 0.8rem 1rem;
 }
+
+main h3 {
+    font-size: 2rem;
+}
+
+main.sign-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    text-align: center;
+    background: #1F4121;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.form p a {
+    color: #F5FAF5;
+}
+
+.form label {
+    display: block;
+    margin-bottom: 0.2rem;
+    text-align: left;
+}
+
+.form input {
+    display: block;
+    width: 13rem;
+    margin-bottom: 0.2rem;
+    height: 1.5rem;
+    border: 2px solid #2B5A2D;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+}
+
+.form button {
+    width: 6rem;
+    height: 2rem;
+    margin-top: 1rem;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    color: #1F4121;
+    border: 2px solid #2B5A2D;
+    border-radius: 0.5rem;
+}
+
+.form button:hover {
+    cursor: pointer;
+}
+    
