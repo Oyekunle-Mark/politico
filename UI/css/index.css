@@ -3,21 +3,29 @@ body {
     font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
     color: #F5FAF5;
-    background: #5AAF5D;
+    background: url('../img/circles-light.png');
+}
+
+header {
+    background: #1F4121;
+    width: 100%;
 }
 
 header h1 {
     font-family: 'Pathway Gothic One', sans-serif;
     margin: 0;
-    font-size: 4rem;
+    font-size: 3rem;
     padding: 0.3rem 1.5rem 0.8rem 1rem;
 }
 
 main h3 {
     font-size: 2rem;
+    text-align: center;
+    color: #0F120D;
+    margin-top: 5rem;
 }
 
-main.sign-in {
+main.sign-in, main.sign-up {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +37,7 @@ main.sign-in {
     background: #1F4121;
     padding: 2rem;
     border-radius: 1rem;
+    margin-bottom: 5rem;
 }
 
 .form p a {
@@ -47,7 +56,7 @@ main.sign-in {
     margin-bottom: 0.2rem;
     height: 1.5rem;
     border: 2px solid #2B5A2D;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     padding: 0.2rem;
 }
 
@@ -65,4 +74,20 @@ main.sign-in {
 .form button:hover {
     cursor: pointer;
 }
-    
+
+@media only screen and (min-width: 768px) {
+    .sign-up .form {
+        max-width: 55rem;
+        width: 70%;
+        margin: 0 auto;
+        padding: 4rem;
+        margin-bottom: 5rem;
+        text-align: center;
+    }
+
+    .sign-up form input {
+        width: 90%;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
