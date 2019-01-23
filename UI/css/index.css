@@ -9,6 +9,8 @@ body {
 header {
     background: #1F4121;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 header h1 {
@@ -16,6 +18,36 @@ header h1 {
     margin: 0;
     font-size: 3rem;
     padding: 0.3rem 1.5rem 0.8rem 1rem;
+}
+
+header ul {
+    position: absolute;
+    right: 0;
+    margin-top: 1.7rem;
+}
+
+header ul li{
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline-block;
+    color: #F5FAF5;
+    font-family: 'Dosis', sans-serif;
+}
+
+header ul li a {
+    color: #F5FAF5;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 0.15rem;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 main h3 {
