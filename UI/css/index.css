@@ -25,7 +25,7 @@ main h3 {
     margin-top: 5rem;
 }
 
-main.sign-in, main.sign-up {
+main.sign-in, main.sign-up, main.reset {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +75,55 @@ main.sign-in, main.sign-up {
     cursor: pointer;
 }
 
+/*
+.reset .form {
+    background: none;
+    color: #0F120D;
+    padding: 1rem;
+}
+
+.reset .form div {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+}
+
+.reset .form input, label {
+    margin-left: 1rem;
+    background: none;
+}
+*/
+
+.reset .form {
+    background: none;
+    color: #0F120D;
+}
+
+.reset .form input {
+    border: 0;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+    background: none;
+}
+
+.reset .form button {
+    background: #1F4121;
+    color: white;
+}
+
+footer {
+/*
+    
+*/
+    margin: 0 auto;
+    margin-top: 5rem;
+    border-top: 1px solid #1F4121;
+    width: 85%;
+    color: #0F120D;
+    text-align: center;
+}
+
+
 @media only screen and (min-width: 768px) {
     .sign-up .form {
         max-width: 55rem;
@@ -89,5 +138,12 @@ main.sign-in, main.sign-up {
         width: 90%;
         border-radius: 0.5rem;
         margin-bottom: 1rem;
+    }
+    
+    footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
     }
 }
