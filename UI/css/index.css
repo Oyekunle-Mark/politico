@@ -9,6 +9,8 @@ body {
 header {
     background: #1F4121;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 header h1 {
@@ -18,14 +20,45 @@ header h1 {
     padding: 0.3rem 1.5rem 0.8rem 1rem;
 }
 
+header ul {
+    position: absolute;
+    right: 0;
+    margin-top: 1.7rem;
+}
+
+header ul li{
+    list-style-type: none;
+}
+
+header ul li {
+    display: inline-block;
+    color: #F5FAF5;
+    font-family: 'Dosis', sans-serif;
+}
+
+header ul li a {
+    color: #F5FAF5;
+    font-family: 'Dosis', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 0.15rem;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 main h3 {
     font-size: 2rem;
     text-align: center;
     color: #0F120D;
     margin-top: 5rem;
+    font-family: 'Dosis', sans-serif;
 }
 
-main.sign-in, main.sign-up {
+main.sign-in, main.sign-up, main.reset {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,7 +108,36 @@ main.sign-in, main.sign-up {
     cursor: pointer;
 }
 
-@media only screen and (min-width: 768px) {
+.reset .form {
+    background: none;
+    color: #0F120D;
+}
+
+.reset .form input {
+    border: 0;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+    background: none;
+}
+
+.reset .form button {
+    background: #1F4121;
+    color: white;
+}
+
+footer {
+    font-family: 'Dosis', sans-serif;
+    margin: 0 auto;
+    margin-top: 5rem;
+    border-top: 1px solid #1F4121;
+    width: 85%;
+    color: #0F120D;
+    text-align: center;
+}
+
+/* for tablet and desktop */
+@media only screen and (min-width: 767px) {
+    
     .sign-up .form {
         max-width: 55rem;
         width: 70%;
