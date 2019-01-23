@@ -23,6 +23,7 @@ main h3 {
     text-align: center;
     color: #0F120D;
     margin-top: 5rem;
+    font-family: 'Dosis', sans-serif;
 }
 
 main.sign-in, main.sign-up, main.reset {
@@ -75,25 +76,6 @@ main.sign-in, main.sign-up, main.reset {
     cursor: pointer;
 }
 
-/*
-.reset .form {
-    background: none;
-    color: #0F120D;
-    padding: 1rem;
-}
-
-.reset .form div {
-    display: flex;
-    flex-direction: row;
-    padding: 1rem;
-}
-
-.reset .form input, label {
-    margin-left: 1rem;
-    background: none;
-}
-*/
-
 .reset .form {
     background: none;
     color: #0F120D;
@@ -112,9 +94,7 @@ main.sign-in, main.sign-up, main.reset {
 }
 
 footer {
-/*
-    
-*/
+    font-family: 'Dosis', sans-serif;
     margin: 0 auto;
     margin-top: 5rem;
     border-top: 1px solid #1F4121;
@@ -123,8 +103,9 @@ footer {
     text-align: center;
 }
 
-
-@media only screen and (min-width: 768px) {
+/* for tablet and desktop */
+@media only screen and (min-width: 767px) {
+    
     .sign-up .form {
         max-width: 55rem;
         width: 70%;
@@ -138,12 +119,5 @@ footer {
         width: 90%;
         border-radius: 0.5rem;
         margin-bottom: 1rem;
-    }
-    
-    footer {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 0;
     }
 }
