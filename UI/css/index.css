@@ -125,7 +125,8 @@ main.sign-in, main.sign-up, main.reset {
     color: white;
 }
 
-.register h3 {
+.register, .profile h3 {
+    margin-top: 2rem;
     text-align: left;
     padding-left: 1rem;
 }
@@ -150,6 +151,24 @@ main.sign-in, main.sign-up, main.reset {
 .register form button {
     background: #0F120D;
     color: #F5FAF5;
+}
+
+.profile {
+    color: #0F120D;
+}
+
+.profile p {
+    padding-left: 1rem;
+}
+
+#resetLink {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+#resetLink a {
+    color: #0F120D;
 }
 
 footer {
