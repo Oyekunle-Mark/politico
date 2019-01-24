@@ -122,7 +122,7 @@ main.sign-in, main.sign-up, main.reset {
 
 .reset .form button {
     background: #1F4121;
-    color: white;
+    color: #F5FAF5;
 }
 
 .register, .profile h3 {
@@ -171,6 +171,40 @@ main.sign-in, main.sign-up, main.reset {
     color: #0F120D;
 }
 
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: #0F120D;
+}
+
+section article form {
+    background: #BDD0C5;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    height: 20rem;
+    width: 16rem;
+    margin: 1rem;
+}
+
+section article form select, button, input {
+    width: 15rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #0F120D;
+    border-radius: 0.5rem;
+}
+
+section article form button {
+    background: #0F120D;
+    color: #F5FAF5;
+}
+
 footer {
     font-family: 'Dosis', sans-serif;
     margin: 0 auto;
@@ -200,5 +234,11 @@ footer {
     
     header ul li a {
         padding-right: 2rem;
+    }
+    
+    section {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }
