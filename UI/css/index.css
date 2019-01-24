@@ -134,13 +134,12 @@ main.sign-in, main.sign-up, main.reset {
 .register form {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 1rem;
+    align-items: center;
     padding-bottom: 5rem;
 }
 
 .register form select, button {
-    width: 18rem;
+    width: 15rem;
     height: 2rem;
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -177,6 +176,17 @@ section {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    color: #0F120D;
+}
+
+#userHome p {
+    font-size: 1.2rem;
+    text-align: left;
+    padding-left: 1rem;
+    color: #0F120D;
+}
+
+#userHome p a {
     color: #0F120D;
 }
 
