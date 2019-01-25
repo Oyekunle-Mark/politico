@@ -1,0 +1,31 @@
+{
+  "name": "politico",
+  "version": "1.0.0",
+  "description": "**The Andela Developer Challenge Project**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oyekunle-mark/politico.git"
+  },
+  "keywords": [
+    "politico",
+    "voting",
+    "election",
+    "party",
+    "candidate"
+  ],
+  "author": "oyekunle-oloyede",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oyekunle-mark/politico/issues"
+  },
+  "homepage": "https://github.com/oyekunle-mark/politico#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0"
+  }
+}
