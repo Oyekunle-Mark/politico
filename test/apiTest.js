@@ -1,6 +1,6 @@
-/* eslint-disable no-undef */
-const request = require('supertest');
-const app = require('../routes/api');
+import request from 'supertest';
+
+import app from '../routes/api';
 
 describe('POST /parties', function () {
   it('respond with json containing the newly created party', function (done) {
