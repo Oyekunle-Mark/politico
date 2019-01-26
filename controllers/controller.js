@@ -13,7 +13,7 @@ class Controller {
 
     parties.push(party);
     
-    res.status(200).send({
+    return res.status(200).send({
       status: 200,
       data: [{
         "id": party.id,
@@ -24,16 +24,16 @@ class Controller {
 
   getSpecificParty(req, res) {
     if (parties.length === 0) {
-      res.status(404).send({
+      return res.status(404).send({
         status: 404,
         errror: "No parties added"
       })
     }
-    
+
     const id = parseInt(req.params.id);
     const party = parties[id - 1];
 
-    res.status(200).send({
+    return res.status(200).send({
       status: 200,
       data: [{
         id,
