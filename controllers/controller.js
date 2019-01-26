@@ -7,8 +7,8 @@ class Controller {
     const party = {
       id: parties.length + 1,
       name: req.body.name,
-      hqAddress: req.body.hq,
-      logoUrl: req.body.logo
+      hqAddress: req.body.hqAddress,
+      logoUrl: req.body.logoUrl
     }
 
     parties.push(party);
@@ -38,8 +38,17 @@ class Controller {
       data: [{
         id,
         name: party.name,
-        logo: party.logo
+        logoUrl: party.logoUrl
       }]
+    })
+  }
+
+  getAllParty(req, res) {
+    return res.status(200).send({
+      status: 200,
+      data: [
+        parties.map(party => ({id: party.id, name: party.name, logoUrl: party.logoUrl}))
+      ]
     })
   }
 }

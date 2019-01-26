@@ -6,5 +6,6 @@ const versionedEndPoint = '/api/v1';
 
 router.post(`${versionedEndPoint}/parties`, controller.createParty);
 router.get(`${versionedEndPoint}/parties/:id`, controller.getSpecificParty);
+router.get(`${versionedEndPoint}/parties/`, controller.getAllParty);
 
 export default router;
