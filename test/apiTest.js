@@ -15,7 +15,7 @@ describe('POST /parties', function () {
 
 
 describe('GET /parties/1', function () {
-  it('return json object', function (done) {
+  it('fetched a specific political party', function (done) {
     request(app)
       .get('/api/v1/parties/1')
       .set('Accept', 'application/json')
