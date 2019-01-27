@@ -44,6 +44,13 @@ class PartyController {
   }
 
   static getAllParty(req, res) {
+    if (parties.length === 0) {
+      return res.status(200).json({
+        status: 200,
+        message: 'No parties created',
+      });
+    }
+
     return res.status(200).json({
       status: 200,
       data: [
