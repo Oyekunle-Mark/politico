@@ -61,12 +61,22 @@ header nav ul li a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+main h4 {
+    color: #0F120D;
+    background: #DBE6DF;
+    font-size: 2rem;
+    padding: 2rem;
+    margin-top: 5rem;
+    border-radius: 1rem;
+    max-width: 55rem;
+    width: 60%;
+}
 
 main h3 {
     font-size: 2rem;
     text-align: center;
     color: #0F120D;
-    margin-top: 5rem;
+    margin-top: 2rem;
     font-family: 'Dosis', sans-serif;
 }
 
@@ -257,7 +267,11 @@ footer {
         width: 90%;
         border-radius: 0.5rem;
         margin-bottom: 1rem;
-    } 
+    }
+
+    section article form {
+        margin-right: 5rem;
+    }
     
     header ul li a {
         padding-right: 2rem;
