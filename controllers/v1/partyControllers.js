@@ -1,8 +1,6 @@
 const parties = [];
 
-const offices = [];
-
-class partyController {
+class PartyController {
   static createParty(req, res) {
     const { name, hqAddress, logoUrl } = req.body;
 
@@ -116,7 +114,6 @@ class partyController {
       }],
     });
   }
-
 }
 
-export default partyController;
+export default PartyController;
