@@ -19,6 +19,22 @@ class OfficeController {
       }],
     });
   }
+
+  static getAllOffices(req, res) {
+    if (offices.length === 0) {
+      return res.status(200).json({
+        status: 200,
+        message: 'No office created',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: [
+        ...offices,
+      ],
+    });
+  }
 }
 
 export default OfficeController;
