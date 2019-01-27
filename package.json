@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require babel-polyfill --require babel-register",
-    "lint": "npx eslint routes/*.js",
+    "lint": "npx eslint . --ext .js",
     "start": "nodemon index.js --exec babel-node --"
   },
   "repository": {
