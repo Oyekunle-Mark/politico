@@ -1,11 +1,11 @@
 import express from 'express';
-import controller from '../controllers/controller';
+import partyController from '../controllers/apiControllers';
 
 const router = express.Router();
-const versionedEndPoint = '/api/v1';
 
-router.post(`${versionedEndPoint}/parties`, controller.createParty);
-router.get(`${versionedEndPoint}/parties/:id`, controller.getSpecificParty);
-router.get(`${versionedEndPoint}/parties/`, controller.getAllParty);
+router.post('/parties', partyController.createParty);
+router.get('/parties/:id', partyController.getSpecificParty);
+router.get('/parties/', partyController.getAllParty);
+router.patch('/parties/:id/name', partyController.editSpecificParty);
 
 export default router;
