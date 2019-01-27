@@ -6,7 +6,11 @@ describe('POST /parties', function () {
   it('respond with json containing the newly created party', function (done) {
     request(app)
       .post('/api/v1/parties')
-      .send({})
+      .send({
+        "name": "party",
+        "hqAddress": "address",
+        "logoUrl": "url",
+      })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
@@ -38,6 +42,9 @@ describe('PATCH /parties/1/name', function () {
   it('edit the name of a specific political party', function (done) {
     request(app)
       .patch('/api/v1/parties/1/name')
+      .send({
+        "name": "name",
+      })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
@@ -58,7 +65,10 @@ describe('POST /offices', function () {
   it('create a political office', function (done) {
     request(app)
       .post('/api/v1/offices')
-      .send({})
+      .send({
+        "type": "type",
+        "name": "name",
+      })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
