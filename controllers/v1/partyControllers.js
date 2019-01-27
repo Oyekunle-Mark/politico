@@ -31,6 +31,14 @@ class PartyController {
     }
 
     const id = parseInt(req.params.id, 10);
+
+    if (id > parties.length) {
+      return res.status(404).send({
+        status: 404,
+        error: 'Id exceeds number of parties',
+      });
+    }
+
     const party = parties[id - 1];
 
     return res.status(200).json({
@@ -68,6 +76,14 @@ class PartyController {
     }
 
     const id = parseInt(req.params.id, 10);
+
+    if (id > parties.length) {
+      return res.status(404).send({
+        status: 404,
+        error: 'Id exceeds number of parties',
+      });
+    }
+
     const { name } = req.body;
 
     // const partyList = parties.map(party => (
@@ -105,6 +121,13 @@ class PartyController {
     }
 
     const id = parseInt(req.params.id, 10);
+
+    if (id > parties.length) {
+      return res.status(404).send({
+        status: 404,
+        error: 'Id exceeds number of parties',
+      });
+    }
 
     // const newParties = parties.filter(party => party.id === id );
 
