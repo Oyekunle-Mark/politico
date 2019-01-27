@@ -4,7 +4,7 @@
   "description": "**The Andela Developer Challenge Project**.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require babel-polyfill --require babel-register",
+    "test": "npx mocha --exit --require babel-polyfill --require babel-register",
     "lint": "npx eslint . --ext .js",
     "start": "nodemon index.js --exec babel-node --"
   },
