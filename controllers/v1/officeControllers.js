@@ -1,34 +1,45 @@
+import OfficeMiddeware from '../../middlewares/officeMiddleware';
+
 const offices = [];
 
 class OfficeController {
   static createOffice(req, res) {
-    const { type, name } = req.body;
+    OfficeMiddeware.createOfficeCheck(req);
 
-    const office = {
-      id: offices.length + 1,
-      type,
-      name,
-    };
+    if (req.error === true) {
+      res.status(404).json({
+        status: 404,
+        error: 'Provide type and name of the office.',
+      });
+    } else {
+      const { type, name } = req.body;
 
-    offices.push(office);
+      const office = {
+        id: offices.length + 1,
+        type,
+        name,
+      };
 
-    return res.status(200).json({
-      status: 200,
-      data: [{
-        ...office,
-      }],
-    });
+      offices.push(office);
+
+      res.status(200).json({
+        status: 200,
+        data: [{
+          ...office,
+        }],
+      });
+    }
   }
 
   static getAllOffices(req, res) {
     if (offices.length === 0) {
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: 'No office created',
       });
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       data: [
         ...offices,
@@ -38,16 +49,24 @@ class OfficeController {
 
   static getSpecificOffice(req, res) {
     if (offices.length === 0) {
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: 'No office created',
       });
     }
 
     const id = parseInt(req.params.id, 10);
+
+    if (id > offices.length) {
+      res.status(404).send({
+        status: 404,
+        error: 'Id exceeds number of offices',
+      });
+    }
+
     const office = offices[id - 1];
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       data: [{
         ...office,
