@@ -76,7 +76,7 @@ describe('GET /offices', function () {
 });
 
 describe('GET /offices/1', function () {
-  it('fetch all offices records', function (done) {
+  it('fetch specific political office', function (done) {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
