@@ -45,6 +45,14 @@ class OfficeController {
     }
 
     const id = parseInt(req.params.id, 10);
+
+    if (id > offices.length) {
+      return res.status(404).send({
+        status: 404,
+        error: 'Id exceeds number of offices',
+      });
+    }
+
     const office = offices[id - 1];
 
     return res.status(200).json({
