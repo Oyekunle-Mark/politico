@@ -1,30 +1,41 @@
+import PartyMiddleware from '../../middlewares/partyMiddleware';
+
 const parties = [];
 
 class PartyController {
   static createParty(req, res) {
-    const { name, hqAddress, logoUrl } = req.body;
+    PartyMiddleware.createPartyCheck(req);
 
-    const party = {
-      id: parties.length + 1,
-      name,
-      hqAddress,
-      logoUrl,
-    };
+    if (req.error === true) {
+      res.status(404).json({
+        status: 404,
+        error: 'Provide name, address and logo of the party',
+      });
+    } else {
+      const { name, hqAddress, logoUrl } = req.body;
 
-    parties.push(party);
-    
-    return res.status(200).json({
-      status: 200,
-      data: [{
-        id: party.id,
+      const party = {
+        id: parties.length + 1,
         name,
-      }],
-    });
+        hqAddress,
+        logoUrl,
+      };
+
+      parties.push(party);
+
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id: party.id,
+          name,
+        }],
+      });
+    }
   }
 
   static getSpecificParty(req, res) {
     if (parties.length === 0) {
-      return res.status(404).send({
+      res.status(404).send({
         status: 404,
         errror: 'No parties added',
       });
@@ -33,7 +44,7 @@ class PartyController {
     const id = parseInt(req.params.id, 10);
 
     if (id > parties.length) {
-      return res.status(404).send({
+      res.status(404).send({
         status: 404,
         error: 'Id exceeds number of parties',
       });
@@ -41,7 +52,7 @@ class PartyController {
 
     const party = parties[id - 1];
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       data: [{
         id,
@@ -53,13 +64,13 @@ class PartyController {
 
   static getAllParty(req, res) {
     if (parties.length === 0) {
-      return res.status(200).json({
+      res.status(200).json({
         status: 200,
         message: 'No parties created',
       });
     }
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       data: [
         parties.map(party => ({ id: party.id, name: party.name, logoUrl: party.logoUrl })),
@@ -68,53 +79,62 @@ class PartyController {
   }
 
   static editSpecificParty(req, res) {
-    if (parties.length === 0) {
-      return res.status(404).send({
-        tatus: 404,
-        errror: 'No parties added',
-      });
-    }
+    PartyMiddleware.editSpecificPartyCheck(req);
 
-    const id = parseInt(req.params.id, 10);
-
-    if (id > parties.length) {
-      return res.status(404).send({
+    if (req.error === true) {
+      res.status(404).json({
         status: 404,
-        error: 'Id exceeds number of parties',
+        error: 'Provide new name of the party',
       });
-    }
+    } else {
+      if (parties.length === 0) {
+        res.status(404).send({
+          tatus: 404,
+          errror: 'No parties added',
+        });
+      }
 
-    const { name } = req.body;
+      const id = parseInt(req.params.id, 10);
 
-    // const partyList = parties.map(party => (
-    //   party.id !== id ? party : ({id, name, hqAddress: party.hqAddress, logoUrl: party.logoUrl })
-    // ));
+      if (id > parties.length) {
+        res.status(404).send({
+          status: 404,
+          error: 'Id exceeds number of parties',
+        });
+      }
 
-    // parties = {
-    //   ...partyList,
-    // };
+      const { name } = req.body;
 
-    const specificParty = parties[id - 1];
+      // const partyList = parties.map(party => (
+      // party.id !== id ? party : ({id, name, hqAddress: party.hqAddress, logoUrl: party.logoUrl })
+      // ));
 
-    parties[id - 1] = {
-      id,
-      name,
-      hqAddress: specificParty.hqAddress,
-      logoUrl: specificParty.logoUrl,
-    };
+      // parties = {
+      //   ...partyList,
+      // };
 
-    return res.status(200).json({
-      status: 200,
-      data: [{
+      const specificParty = parties[id - 1];
+
+      parties[id - 1] = {
         id,
         name,
-      }],
-    });
+        hqAddress: specificParty.hqAddress,
+        logoUrl: specificParty.logoUrl,
+      };
+
+      res.status(200).json({
+        status: 200,
+        data: [{
+          id,
+          name,
+        }],
+      });
+    }
   }
 
   static deleteSpecificParty(req, res) {
     if (parties.length === 0) {
-      return res.status(404).send({
+      res.status(404).send({
         tatus: 404,
         errror: 'No parties added',
       });
@@ -123,7 +143,7 @@ class PartyController {
     const id = parseInt(req.params.id, 10);
 
     if (id > parties.length) {
-      return res.status(404).send({
+      res.status(404).send({
         status: 404,
         error: 'Id exceeds number of parties',
       });
@@ -137,7 +157,7 @@ class PartyController {
 
     parties.splice(id - 1, 1);
 
-    return res.status(200).json({
+    res.status(200).json({
       status: 200,
       data: [{
         message: 'Party deleted',
