@@ -10,6 +10,8 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//  version 1 of the api
 app.use('/api/v1', router);
 
 app.listen(port, () => {
