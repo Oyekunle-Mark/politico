@@ -61,17 +61,6 @@ header nav ul li a:hover {
     cursor: pointer;
     text-decoration: underline;
 }
-main h4 {
-    color: #0F120D;
-    background: #DBE6DF;
-    font-size: 2rem;
-    padding: 2rem;
-    text-align: center;
-    margin-top: 5rem;
-    border-radius: 1rem;
-    max-width: 55rem;
-    width: 60%;
-}
 
 main h3 {
     font-size: 2rem;
@@ -88,12 +77,25 @@ main.sign-in, main.sign-up, main.reset {
     justify-content: center;
 }
 
+div .forgotPassword {
+    float: left;
+}
+
+div .forgotPassword a {
+    color: #F5FAF5;
+}
+
 .form {
     text-align: center;
     background: #1F4121;
     padding: 2rem;
     border-radius: 1rem;
     margin-bottom: 5rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+}
+
+.form button {
+    box-shadow: 0 0 0;
 }
 
 .form p a {
@@ -117,7 +119,7 @@ main.sign-in, main.sign-up, main.reset {
 }
 
 .form button {
-    width: 6rem;
+    width: 8rem;
     height: 2rem;
     margin-top: 1rem;
     padding: 0.2rem;
@@ -129,23 +131,34 @@ main.sign-in, main.sign-up, main.reset {
 
 .form button:hover {
     cursor: pointer;
-}
+} 
 
-.reset .form {
-    background: none;
+#reset form {
+    text-align: left;
     color: #0F120D;
+    padding-left: 1rem;
 }
 
-.reset .form input {
-    border: 0;
-    border-bottom: 2px solid black;
-    border-radius: 0;
-    background: none;
+#reset form input {
+    height: 2rem;
+    width: 20rem;
+    border-radius: 0.5rem;
 }
 
-.reset .form button {
-    background: #1F4121;
+#reset form button {
+    height: 2.2rem;
+    width: 5rem;
+    border-radius: 0.5rem;
+    background-color: #0F120D;
     color: #F5FAF5;
+}
+
+#reset form button:hover {
+    cursor: pointer;
+}
+
+#reset p {
+    color: #B31A1A;
 }
 
 .register, .profile h3 {
@@ -168,6 +181,7 @@ main.sign-in, main.sign-up, main.reset {
     font-size: 1rem;
     border: 1px solid #0F120D;
     border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 0.3rem grey;
 }
 
 .register form button {
@@ -175,12 +189,22 @@ main.sign-in, main.sign-up, main.reset {
     color: #F5FAF5;
 }
 
+.register form button:hover {
+    cursor: pointer;
+}
+
 .profile {
     color: #0F120D;
 }
 
-.profile p {
+.profile h4 {
     padding-left: 1rem;
+}
+
+.profile table {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 80%;
 }
 
 #resetLink {
@@ -202,6 +226,10 @@ section {
     color: #0F120D;
 }
 
+#userHome {
+    margin-bottom: 5rem;
+}
+
 #userHome p {
     font-size: 1.2rem;
     text-align: left;
@@ -210,7 +238,20 @@ section {
 }
 
 #userHome p a {
+    color: #1F4121;
+}
+
+.electionResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #0F120D;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 section article form {
@@ -219,9 +260,27 @@ section article form {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    height: 20rem;
+    height: 18rem;
     width: 16rem;
     margin: 1rem;
+    box-shadow: 0.4rem 0.4rem 0.3rem grey;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+}
+
+section article h3 {
+    color: #1F4121;
+    text-decoration: underline;
+}
+
+section article form h3 {
+    text-align: center;
+    color: #0F120D;
+    text-decoration: none;
+}
+
+section article h4 {
+    font-family: 'Dosis', sans-serif;
 }
 
 section article form select, button, input {
@@ -236,6 +295,125 @@ section article form select, button, input {
 section article form button {
     background: #0F120D;
     color: #F5FAF5;
+}
+
+section article form button:hover {
+    cursor: pointer;
+}
+
+section article .caption {
+    color: #1F4121;
+    text-decoration: underline;
+    font-size: 2rem;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: auto;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+th, td {
+    padding: 0.5rem;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #DBE6DF;
+}
+
+table tr td img {
+	border: 2px solid #0F120D;
+	border-radius: 0.2rem;
+}
+
+section article table tr td button {
+    background: #0F120D;
+    color: #F5FAF5;
+    width: 5rem;
+    margin-top: 0.3rem;
+}
+
+section article table tr td button:hover {
+    cursor: pointer;
+}
+
+.landingPage {
+    background: url('../img/nigeria-elections.jpg');
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+.overlay h3 {
+    color: #F5FAF5;
+    padding-top: 15%;
+}
+    
+.overlay nav ul li button {
+    width: 7rem;
+	padding: 0;
+    margin-right: 1rem;
+    box-shadow: 0 0 0;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+.overlay header nav ul li button a {
+	color: #0F120D;
+	font-size: 1rem;
+	padding: 0;
+}
+
+.overlay nav ul li button:hover {
+    cursor: pointer;
+}
+
+.overlay nav ul li button a:hover {
+	text-decoration: none;
+}
+
+.overlay div {
+    text-align: center;
+    padding-bottom: 5rem;
+}
+
+.overlay footer {
+    color: #F5FAF5;
+    border-top: 1px solid #F5FAF5;
+}
+
+.overlay button {
+    width: 7rem;
+    margin-right: 1rem;
+    box-shadow: 0 0 0;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bold;
+}
+
+.overlay button:hover {
+    cursor: pointer;
+}
+
+button a {
+	color: #0F120D;
+	text-decoration: none;
+	padding: 1.5rem;
+}
+
+main form button a {
+	color: #0F120D;
 }
 
 footer {
@@ -282,5 +460,9 @@ footer {
         display: flex;
         flex-direction: row;
         justify-content: center;
+    }
+    
+    table {
+        width: 50rem;
     }
 }
