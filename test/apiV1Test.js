@@ -13,7 +13,7 @@ describe('POST /parties',() => {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(201, done)
   });
 });
 
@@ -47,7 +47,7 @@ describe('PATCH /parties/1/name', () => {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(202, done)
   });
 });
 
@@ -71,7 +71,7 @@ describe('POST /offices', () => {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(201, done)
   });
 });
 
