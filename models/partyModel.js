@@ -69,7 +69,7 @@ class PartyModel {
   static deleteSpecificParty(res, id) {
     if (parties.length === 0) {
       res.status(404).send({
-        tatus: 404,
+        status: 404,
         errror: 'No parties added',
       });
     } else if (id > parties.length) {
