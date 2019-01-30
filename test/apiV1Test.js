@@ -2,8 +2,8 @@ import request from 'supertest';
 
 import app from '../index';
 
-describe('POST /parties', function () {
-  it('respond with json containing the newly created party', function (done) {
+describe('POST /parties',() => {
+  it('respond with json containing the newly created party', (done) => {
     request(app)
       .post('/api/v1/parties')
       .send({
@@ -18,8 +18,8 @@ describe('POST /parties', function () {
 });
 
 
-describe('GET /parties/1', function () {
-  it('fetched a specific political party', function (done) {
+describe('GET /parties/1',() => {
+  it('fetched a specific political party', (done) => {
     request(app)
       .get('/api/v1/parties/1')
       .set('Accept', 'application/json')
@@ -28,8 +28,8 @@ describe('GET /parties/1', function () {
   });
 });
 
-describe('GET /parties/', function () {
-  it('fetch all political parties records', function (done) {
+describe('GET /parties/',() => {
+  it('fetch all political parties records', (done) => {
     request(app)
       .get('/api/v1/parties/')
       .set('Accept', 'application/json')
@@ -38,8 +38,8 @@ describe('GET /parties/', function () {
   });
 });
 
-describe('PATCH /parties/1/name', function () {
-  it('edit the name of a specific political party', function (done) {
+describe('PATCH /parties/1/name', () => {
+  it('edit the name of a specific political party', (done) => {
     request(app)
       .patch('/api/v1/parties/1/name')
       .send({
@@ -51,8 +51,8 @@ describe('PATCH /parties/1/name', function () {
   });
 });
 
-describe('DELETE /parties/1', function () {
-  it('delete a specific political party', function (done) {
+describe('DELETE /parties/1', () => {
+  it('delete a specific political party', (done) => {
     request(app)
       .del('/api/v1/parties/1')
       .set('Accept', 'application/json')
@@ -61,8 +61,8 @@ describe('DELETE /parties/1', function () {
   });
 });
 
-describe('POST /offices', function () {
-  it('create a political office', function (done) {
+describe('POST /offices', () => {
+  it('create a political office', (done) => {
     request(app)
       .post('/api/v1/offices')
       .send({
@@ -75,8 +75,8 @@ describe('POST /offices', function () {
   });
 });
 
-describe('GET /offices', function () {
-  it('fetch all offices records', function (done) {
+describe('GET /offices', () => {
+  it('fetch all offices records', (done) => {
     request(app)
       .get('/api/v1/offices')
       .set('Accept', 'application/json')
@@ -85,8 +85,8 @@ describe('GET /offices', function () {
   });
 });
 
-describe('GET /offices/1', function () {
-  it('fetch specific political office', function (done) {
+describe('GET /offices/1', () => {
+  it('fetch specific political office',(done) => {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
