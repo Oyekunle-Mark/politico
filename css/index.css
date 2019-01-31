@@ -91,7 +91,7 @@ div .forgotPassword a {
     padding: 2rem;
     border-radius: 1rem;
     margin-bottom: 5rem;
-    box-shadow: 0.5rem 0.5rem 0.5rem grey;
+    box-shadow: 0 0.3rem 0.2rem grey;
 }
 
 .form button {
@@ -181,7 +181,7 @@ div .forgotPassword a {
     font-size: 1rem;
     border: 1px solid #0F120D;
     border-radius: 0.5rem;
-    box-shadow: 0.2rem 0.2rem 0.2rem grey;
+    box-shadow: 0 0.2rem 0.2rem grey;
 }
 
 .register form button {
@@ -195,16 +195,29 @@ div .forgotPassword a {
 
 .profile {
     color: #0F120D;
+	text-align: center;
+}
+
+.profile h3 {
+	margin-bottom: 1rem;
+	text-decoration: underline;
+}
+
+.profile p {
+	text-align: left;
+	padding-left: 1rem;
+	font-weight: bold;
 }
 
 .profile h4 {
-    padding-left: 1rem;
+    text-decoration: underline;
 }
 
 .profile table {
     margin-left: 1rem;
     margin-right: 1rem;
     width: 80%;
+	margin: 0 auto;
 }
 
 #resetLink {
@@ -227,7 +240,10 @@ section {
 }
 
 #userHome {
-    margin-bottom: 5rem;
+	margin-top: 1rem;
+    margin-bottom: 2rem;
+	position: absolute;
+	left: 0;
 }
 
 #userHome p {
@@ -235,6 +251,14 @@ section {
     text-align: left;
     padding-left: 1rem;
     color: #0F120D;
+}
+
+section article .partyTable {
+	margin-top: 15rem;
+}
+
+section article hr {
+	color: #0F120D;
 }
 
 #userHome p a {
@@ -263,7 +287,7 @@ section article form {
     height: 18rem;
     width: 16rem;
     margin: 1rem;
-    box-shadow: 0.2rem 0.2rem 0.1rem grey;
+    box-shadow: 0 0.2rem 0.2rem grey;
     margin-top: 3rem;
     margin-bottom: 5rem;
 }
@@ -271,6 +295,7 @@ section article form {
 section article h3 {
     color: #1F4121;
     text-decoration: underline;
+	margin-bottom: 3rem;
 }
 
 section article form h3 {
@@ -298,7 +323,17 @@ section article form button {
 }
 
 section article form button.createButton {
-	margin-top: 5rem;
+	margin-top: 4rem;
+	height: 1.7rem;
+}
+
+section article form select.createSelect {
+	width: 15rem;
+    height: 1.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #0F120D;
+    border-radius: 0.5rem;
 }
 
 section article form button:hover {
@@ -309,6 +344,19 @@ section article .caption {
     color: #1F4121;
     text-decoration: underline;
     font-size: 2rem;
+}
+
+label.filter {
+	font-family: 'Dosis', sans-serif;
+	font-weight: bold;
+}
+
+label.filter select {
+	height: 1.5rem;
+	margin-bottom: 3rem;
+	margin-left: 1rem;
+	border: 1px solid #1F4121;
+	border-radius: 0.3rem;
 }
 
 table {
@@ -427,7 +475,7 @@ main form button a {
 
 .pagination a {
 	color: #0F120D;
-	padding: 1rem;
+	padding: 0.5rem 1rem;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 1.3rem;
