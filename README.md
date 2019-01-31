@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/Oyekunle-Mark/politico.svg?branch=ch-api-integration-163505391)](https://travis-ci.com/Oyekunle-Mark/politico)
+[![Coverage Status](https://coveralls.io/repos/github/Oyekunle-Mark/politico/badge.svg)](https://coveralls.io/github/Oyekunle-Mark/politico)
 
 # Politico
 **The Andela Developer Challenge Project**.
