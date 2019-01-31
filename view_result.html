@@ -26,39 +26,16 @@
         <main class="electionResults">
             <h3>Election results</h3>
             
-            <h4>Federal Executive</h4>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Office Name</th>
-                        <th>Candidate</th>
-                        <th>Candidate's photo</th>
-                        <th>Votes</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Presidency</td>
-                        <td>Harry Potter</td>
-                        <td><img src="img/man1.jpg" alt="party_logo" width="50px" height="50px"></td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Presidency</td>
-                        <td>Lara Croft</td>
-                        <td><img src="img/woman.jpeg" alt="party_logo" width="50px" height="50px"></td>
-                        <td>33</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Presidency</td>
-                        <td>Clark Kent</td>
-                        <td><img src="img/man2.jpeg" alt="party_logo" width="50px" height="50px"></td>
-                        <td>20</td>
-                    </tr>
-                </table>
-            
-            <h4>State Legislative</h4>
+            <label class="filter">
+				Election results by office type:
+				<select>
+					<option selected disabled>State legislative</option>
+					<option>Federal legislative</option>
+					<option>State executive</option>
+					<option>Federal executive</option>
+				</select>
+			</label>
+			
                 <table>
                     <tr>
                         <th>ID</th>
@@ -89,6 +66,15 @@
                         <td>21</td>
                     </tr>
                 </table>
+			
+				<div class="pagination">
+					<a href="#">&laquo;</a>
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">&raquo;</a>
+				</div>
         </main>
         
         <footer>
