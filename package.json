@@ -7,7 +7,7 @@
     "test": "npx nyc --reporter=html --reporter=text npx mocha --exit --require babel-polyfill --require babel-register",
     "coverage": "npx nyc report --reporter=text-lcov | npx coveralls",
     "lint": "npx eslint . --ext .js",
-    "start": "npx nodemon index.js --exec babel-node --"
+    "start": "npx nodemon index.js --exec npx babel-node --"
   },
   "engines": {
     "node": "11.4.0",
