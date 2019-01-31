@@ -4,7 +4,8 @@
   "description": "**The Andela Developer Challenge Project**.",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha --exit --require babel-polyfill --require babel-register",
+    "test": "npx nyc --reporter=html --reporter=text npx mocha --exit --require babel-polyfill --require babel-register",
+    "coverage": "npx nyc report --reporter=text-lcov | npx coveralls",
     "lint": "npx eslint . --ext .js",
     "start": "nodemon index.js --exec babel-node --"
   },
@@ -31,11 +32,13 @@
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
+    "nyc": "^13.1.0",
     "supertest": "^3.4.2"
   },
   "dependencies": {
