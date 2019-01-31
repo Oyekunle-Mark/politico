@@ -1,9 +1,10 @@
 import request from 'supertest';
+import { expect } from 'chai';
 
 import app from '../index';
 
-describe('POST /parties', function () {
-  it('respond with json containing the newly created party', function (done) {
+describe('POST /parties',() => {
+  it('respond with status 201 and json containing the newly created party', (done) => {
     request(app)
       .post('/api/v1/parties')
       .send({
@@ -12,34 +13,73 @@ describe('POST /parties', function () {
         "logoUrl": "url",
       })
       .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(201, done)
+  });
+
+  it('response should have a party object with the name property and value party', (done) => {
+    request(app)
+      .post('/api/v1/parties')
+      .send({
+        "name": "party",
+        "hqAddress": "address",
+        "logoUrl": "url",
+      })
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data[0].name).to.equal('party');
+        done(err);
+      });
   });
 });
 
-
-describe('GET /parties/1', function () {
-  it('fetched a specific political party', function (done) {
+describe('GET /parties/1',() => {
+  it('respond with status code 200', (done) => {
     request(app)
       .get('/api/v1/parties/1')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
   });
+
+  it('respond with a party object with name and logoUrl property', (done) => {
+    request(app)
+      .get('/api/v1/parties/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data[0].logoUrl).to.equal('url');
+        done(err);
+      });
+  });
 });
 
-describe('GET /parties/', function () {
-  it('fetch all political parties records', function (done) {
+describe('GET /parties/',() => {
+  it('respond with a status code 200', (done) => {
     request(app)
       .get('/api/v1/parties/')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
   });
-});
 
-describe('PATCH /parties/1/name', function () {
-  it('edit the name of a specific political party', function (done) {
+  it('respond with an array of party object', (done) => {
+    request(app)
+      .get('/api/v1/parties/')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        expect(res.body.data).to.be.a("Array");
+        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data[0]).to.have.property('logoUrl');
+        done(err);
+      });
+  });
+});
+  
+describe('PATCH /parties/1/name', () => {
+  it('respond with 202 and a json object', (done) => {
     request(app)
       .patch('/api/v1/parties/1/name')
       .send({
@@ -47,22 +87,42 @@ describe('PATCH /parties/1/name', function () {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(202, done)
+  });
+
+  it('respond with party object of new name newName', (done) => {
+    request(app)
+      .patch('/api/v1/parties/1/name')
+      .send({
+        "name": "newName",
+      })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        expect(res.body.data[0].name).to.equal('newName');
+        expect(res.body.data[0].id).to.equal(1);
+        done(err);
+      });
   });
 });
 
-describe('DELETE /parties/1', function () {
-  it('delete a specific political party', function (done) {
+describe('DELETE /parties/1', () => {
+  it('respond with a status 200 and a message', (done) => {
     request(app)
       .del('/api/v1/parties/1')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(200)
+      .end((err, res) => {
+        expect(res.body.data[0]).to.have.property('message');
+        expect(res.body.data[0].message).to.be.equal('Party deleted');
+        done(err);
+      });
   });
 });
 
-describe('POST /offices', function () {
-  it('create a political office', function (done) {
+describe('POST /offices', () => {
+  it('respond with status code 201', (done) => {
     request(app)
       .post('/api/v1/offices')
       .send({
@@ -71,26 +131,86 @@ describe('POST /offices', function () {
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(201, done)
+  });
+
+  it('respond with office name and type', (done) => {
+    request(app)
+      .post('/api/v1/offices')
+      .send({
+        "type": "type",
+        "name": "name",
+      })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .end((err, res) => {
+        expect(res.body.data[0]).to.have.property('type');
+        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data[0].name).to.equal('name');
+        expect(res.body.data[0].type).to.equal('type');
+        done(err);
+      });
+    });
+
+    it('respond with a status code 404', (done) => {
+      request(app)
+      .post('/api/v1/offices')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .expect(404)
+      .end((err, res) => {
+        expect(res.body).to.have.property('error');
+        expect(res.body.error).to.equal('Provide type and name of the office.');
+        done(err);
+      });
   });
 });
 
-describe('GET /offices', function () {
-  it('fetch all offices records', function (done) {
+describe('GET /offices', () => {
+  it('respond with status 200', (done) => {
     request(app)
       .get('/api/v1/offices')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
   });
+
+  it('respond with an array of object', (done) => {
+    request(app)
+    .get('/api/v1/offices')
+    .set('Accept', 'application/json')
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      expect(res.body).to.have.property('data');
+      expect(res.body.data).to.be.a('Array');
+      expect(res.body.data[0].name).to.equal('name');
+      expect(res.body.data[0].type).to.equal('type');
+      done(err);
+    })
+  })
 });
 
-describe('GET /offices/1', function () {
-  it('fetch specific political office', function (done) {
+describe('GET /offices/1', () => {
+  it('respond with status code 200',(done) => {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, done)
+  });
+
+  it('respond with a single object with data array', (done) => {
+    request(app)
+      .get('/api/v1/offices/1')
+      .set('Accept', 'application/json')
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        expect(res.body.data[0]).to.have.property('name');
+        expect(res.body.data[0]).to.have.property('type');
+        expect(res.body.data[0].name).to.equal('name');
+        expect(res.body.data[0].type).to.equal('type');
+        done(err);
+      });
   });
 });

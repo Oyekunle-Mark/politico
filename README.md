@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Oyekunle-Mark/politico.svg?branch=ch-api-integration-163505391)](https://travis-ci.com/Oyekunle-Mark/politico)
+
 # Politico
 **The Andela Developer Challenge Project**.
 
@@ -7,10 +9,7 @@ This project is a voting app with support for:
 * Petitions after elections
 * Viewing election result
 
-Install all dependecies with ```npm install```,
-Run test with ```npm run test```,
-Check linting with ```npm run lint```
-and start the node app with ```npm run start```.
+Install all dependecies with ```npm install```, run test with ```npm run test```, check linting with ```npm run lint``` and start the node app with ```npm run start```.
 
 #### Author
 *Oyekunle Oloyede*
