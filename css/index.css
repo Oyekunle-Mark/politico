@@ -134,7 +134,7 @@ div .forgotPassword a {
 } 
 
 #reset form {
-    text-align: left;
+    text-align: center;
     color: #0F120D;
     padding-left: 1rem;
 }
@@ -181,7 +181,7 @@ div .forgotPassword a {
     font-size: 1rem;
     border: 1px solid #0F120D;
     border-radius: 0.5rem;
-    box-shadow: 0.3rem 0.3rem 0.3rem grey;
+    box-shadow: 0.2rem 0.2rem 0.2rem grey;
 }
 
 .register form button {
@@ -263,7 +263,7 @@ section article form {
     height: 18rem;
     width: 16rem;
     margin: 1rem;
-    box-shadow: 0.4rem 0.4rem 0.3rem grey;
+    box-shadow: 0.2rem 0.2rem 0.1rem grey;
     margin-top: 3rem;
     margin-bottom: 5rem;
 }
@@ -295,6 +295,10 @@ section article form select, button, input {
 section article form button {
     background: #0F120D;
     color: #F5FAF5;
+}
+
+section article form button.createButton {
+	margin-top: 5rem;
 }
 
 section article form button:hover {
@@ -414,6 +418,24 @@ button a {
 
 main form button a {
 	color: #0F120D;
+}
+
+.pagination {
+	display: block;
+	margin-bottom: 5rem;
+}
+
+.pagination a {
+	color: #0F120D;
+	padding: 1rem;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.pagination a.active {
+	background: grey;
+	border-radius: 0.2rem;
 }
 
 footer {
