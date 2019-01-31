@@ -9,6 +9,10 @@
     "lint": "npx eslint . --ext .js",
     "start": "nodemon index.js --exec babel-node --"
   },
+  "engines": {
+    "node": "11.4.0",
+    "npm": "6.5.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyekunle-mark/politico.git"
