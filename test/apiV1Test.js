@@ -31,22 +31,6 @@ describe('POST /parties',() => {
         done(err);
       });
   });
-  
-/*
-  it('response should return with status 404 and an error message when a field is not filled', (done) => {
-    request(app)
-      .post('/api/v1/parties')
-      .send({})
-      .set('Accept', 'application/json')
-      .expect(404)
-      .end((err, res) => {
-        expect(res.body).to.have.property('error');
-        expect(res.body.error).to.equal('Provide name, address and logo of the party');
-        done(err);
-      });
-  });
-*/
-  
 });
 
 describe('GET /parties/1',() => {
@@ -69,22 +53,6 @@ describe('GET /parties/1',() => {
         done(err);
       });
   });
-
-/*
-  it('respond with a status code 404 and error message when id exceed party numbers', (done) => {
-    request(app)
-      .get('/api/v1/parties/6')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(404)
-      .end((err, res) => {
-        expect(res.body).to.be.a("object");
-        expect(res.body.error).to.equal("Id exceeds number of parties");
-        done(err);
-      });
-  });
-*/
-
 });
 
 describe('GET /parties/',() => {
@@ -136,24 +104,6 @@ describe('PATCH /parties/1/name', () => {
         done(err);
       });
   });
-
-/*
-  it('respond with 404 when id sent exceeds party number', (done) => {
-    request(app)
-      .patch('/api/v1/parties/3/name')
-      .send({
-        "name": "name",
-      })
-      .expect(404)
-      .end((err, res) => {
-        expect(res.body).to.have.property('error');
-        expect(res.body.error).to.be.a('string');
-        expect(res.body.error).to.equal('Id exceeds number of parties');
-        done(err);
-      })
-  });
-*/
-
 });
 
 describe('DELETE /parties/1', () => {
@@ -169,15 +119,6 @@ describe('DELETE /parties/1', () => {
         done(err);
       });
   });
-
-/*
-  it('respond with 404', (done) => {
-    request(app)
-      .del('/api/v1/parties/5')
-      .expect(404, done)
-  });
-*/
-
 });
 
 describe('POST /offices', () => {
@@ -272,20 +213,4 @@ describe('GET /offices/1', () => {
         done(err);
       });
   });
-
-/*
-  it('respond with status code 404 when id exceeds number of party', (done) => {
-    request(app)
-      .get('/api/v1/offices/6')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(404)
-      .end((err, res) => {
-        expect(res.body).to.have.property('error');
-        expect(res.body.error).to.equal('Id exceeds number of offices');
-        done(err);
-      });
-  });
-*/
-
 });
