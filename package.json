@@ -13,6 +13,7 @@
     "node": "11.4.0",
     "npm": "6.5.0"
   },
+  "heroku-postbuild": "npm install --production",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oyekunle-mark/politico.git"
