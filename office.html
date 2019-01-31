@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <title>Politico</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Pathway+Gothic+One" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Politico</h1>
+            
+            <nav>
+                <ul>
+                    <li><a href="user_home.html">Home</a></li>
+                    <li><a href="user_profile.html">Profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+		
+		<section>
+            <article>
+                <h3>Offices</h3>
+                
+				<label class="filter">
+					Filter by type:
+					<select>
+						<option selected disabled>Federal executive</option>
+						<option>Federal legislative</option>
+						<option>State executive</option>
+						<option>State legislative</option>
+					</select>
+				</label>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Office Name</th>
+                        <th>Candidate</th>
+                        <th>Candidate's photo</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Presidency</td>
+                        <td>Harry Potter</td>
+                        <td><img src="img/man1.jpg" alt="party_logo" width="50px" height="50px"></td>
+                        <td><button>Vote</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Presidency</td>
+                        <td>Lara Croft</td>
+                        <td><img src="img/woman.jpeg" alt="party_logo" width="50px" height="50px"></td>
+                        <td><button>Vote</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Presidency</td>
+                        <td>Clark Kent</td>
+                        <td><img src="img/man2.jpeg" alt="party_logo" width="50px" height="50px"></td>
+                        <td><button>Vote</button></td>
+                    </tr>
+                </table>
+                
+                <div class="pagination">
+					<a href="#">&laquo;</a>
+					<a href="#" class="active">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">&raquo;</a>
+				</div>
+				
+            </article>
+        </section>
+		
+		<footer>
+            <p>&copy; 2019 Politico</p>
+            <p>All rights reserved</p>
+        </footer>
+    </body>
+</html>
