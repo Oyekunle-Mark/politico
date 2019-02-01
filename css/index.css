@@ -23,13 +23,19 @@ header {
     width: 100%;
     display: flex;
     flex-direction: row;
+	height: 4.5rem;
 }
 
-header h1 {
-    font-family: 'Pathway Gothic One', sans-serif;
+header h1 { 
     margin: 0;
     font-size: 3rem;
     padding: 0.3rem 1.5rem 0.8rem 1rem;
+}
+
+header h1 a {
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: #F5FAF5;
+	text-decoration: none;
 }
 
 header ul {
@@ -254,7 +260,7 @@ section {
 }
 
 section article .partyTable {
-	margin-top: 15rem;
+	margin-top: 3rem;
 }
 
 section article hr {
@@ -323,17 +329,8 @@ section article form button {
 }
 
 section article form button.createButton {
-	margin-top: 4rem;
+	margin-top: 0.8rem;
 	height: 1.7rem;
-}
-
-section article form select.createSelect {
-	width: 15rem;
-    height: 1.8rem;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    border: 1px solid #0F120D;
-    border-radius: 0.5rem;
 }
 
 section article form button:hover {
@@ -498,6 +495,48 @@ footer {
     width: 85%;
     color: #0F120D;
     text-align: center;
+}
+
+.dropdown {
+	display: inline-block;
+	position: absolute;
+	right: 12%;
+	padding: 1.7rem;
+	padding-right: 1rem;
+	width: 8rem;
+}
+
+.dropdown a {
+	color: #F5FAF5;
+	font-family: 'Dosis', sans-serif;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.dropdownSecondary {
+	display: none;
+	background: #DBE6DF;
+	z-index: 5;
+	border-radius: 0.2rem;
+}
+
+.dropdownSecondary a {
+	display: block;
+	color: #0F120D;
+	font-family: 'Dosis', sans-serif;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 0.5rem;
+	text-decoration: none;
+}
+
+.dropdown:active, .dropdown:hover .dropdownSecondary {
+	display: block;
+}
+
+.dropdown:active, .dropdownSecondary:hover {
+	display: block;
 }
 
 /* for tablet and desktop */
