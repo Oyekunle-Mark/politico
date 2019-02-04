@@ -29,7 +29,7 @@ app.use((req, res) => {
 });
 
 app.listen(port, () => {
-  process.stdout.write(`Server started on port ${port}`);
+  console.log(`Server started on port ${port}`);
 });
 
 export default app;
