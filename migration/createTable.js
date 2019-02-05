@@ -38,7 +38,31 @@ const createTableOffice = () => {
     });
 };
 
+const createTableUser = () => {
+  const query = `CREATE TABLE IF NOT EXISTS users(
+        id SERIAL PRIMARY KEY,
+        firstname VARCHAR(30) NOT NULL,
+        lastname VARCHAR(30) NOT NULL,
+        othername VARCHAR(30) NOT NULL,
+        email VARCHAR(50) UNIQUE NOT NULL,
+        phoneNumber VARCHAR(30) UNIQUE NOT NULL,
+        passportUrl TEXT NOT NULL,
+        password VARCHAR(30) UNIQUE NOT NULL,
+        isAdmin BOOL DEFAULT false
+  )`;
+
+  db.query(query)
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+
 createTableParty();
 createTableOffice();
+createTableUser();
 
 db.end();
