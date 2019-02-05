@@ -10,7 +10,11 @@ This project is a voting app with support for:
 * Petitions after elections
 * Viewing election result
 
-Install all dependecies with ```npm install```, run test with ```npm run test```, check linting with ```npm run lint``` and start the node app with ```npm run start```.
+## Installation Guide
+* Install all dependecies with ```npm install```
+* Run test with ```npm run test``` 
+* Check linting with ```npm run lint``` 
+* Start the node app with ```npm run start```.
 
 #### Author
 *Oyekunle Oloyede*
