@@ -8,6 +8,8 @@
     "coverage": "npx nyc report --reporter=text-lcov | npx coveralls",
     "lint": "npx eslint . --ext .js",
     "start": "npx nodemon index.js --exec babel-node --",
+    "migration": "babel-node migration/createTable",
+    "drop-migration": "babel-node migration/dropTable",
     "heroku-postbuild": "npm install --production"
   },
   "engines": {
