@@ -29,7 +29,20 @@ const dropTableOffice = () => {
     });
 };
 
+const dropTableUsers = () => {
+  const query = 'DROP TABLE users';
+
+  db.query(query)
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 dropTableOffice();
 dropTableParty();
+dropTableUsers();
 
 db.end();

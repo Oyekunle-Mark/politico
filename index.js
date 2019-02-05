@@ -4,6 +4,7 @@ import morgan from 'morgan';
 
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
+import userRouter from './routes/userRouter';
 
 const port = process.env.PORT || 3000;
 
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 // the routers
 app.use('/api/v1', partyRouter);
 app.use('/api/v1', officeRouter);
+app.use('/api/v1', userRouter);
 
 // respond to bad request
 app.use((req, res) => {
