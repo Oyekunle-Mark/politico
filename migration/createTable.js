@@ -47,7 +47,7 @@ const createTableUser = () => {
         email VARCHAR(50) UNIQUE NOT NULL,
         phoneNumber VARCHAR(30) UNIQUE NOT NULL,
         passportUrl TEXT NOT NULL,
-        password VARCHAR(30) UNIQUE NOT NULL,
+        password TEXT NOT NULL,
         isAdmin BOOL DEFAULT false
   )`;
 
