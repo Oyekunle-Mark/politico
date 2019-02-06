@@ -5,7 +5,7 @@ dotenv.config();
 
 const db = new Pool();
 
-const createCandidate = () => {
+const createTableCandidate = () => {
   const query = `CREATE TABLE IF NOT EXISTS candidate(
           id SERIAL NOT NULL,
           party INT NOT NULL REFERENCES party(id),
@@ -23,4 +23,6 @@ const createCandidate = () => {
     });
 };
 
-createCandidate();
+createTableCandidate();
+
+db.end();
