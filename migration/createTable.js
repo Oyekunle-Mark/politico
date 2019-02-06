@@ -5,7 +5,7 @@ dotenv.config();
 
 const db = new Pool();
 
-const createTableParty = () => {
+const createTableParty = async () => {
   const query = `CREATE TABLE IF NOT EXISTS party(
         id SERIAL PRIMARY KEY,
         name VARCHAR(50) UNIQUE NOT NULL,
@@ -13,7 +13,7 @@ const createTableParty = () => {
         logoUrl TEXT NOT NULL
   )`;
 
-  db.query(query)
+  await db.query(query)
     .then((results) => {
       console.log(results);
     })
@@ -22,14 +22,14 @@ const createTableParty = () => {
     });
 };
 
-const createTableOffice = () => {
+const createTableOffice = async () => {
   const query = `CREATE TABLE IF NOT EXISTS office(
         id SERIAL PRIMARY KEY,
         type VARCHAR(30) NOT NULL,
         name VARCHAR(30) UNIQUE NOT NULL
   )`;
 
-  db.query(query)
+  await db.query(query)
     .then((results) => {
       console.log(results);
     })
@@ -38,7 +38,7 @@ const createTableOffice = () => {
     });
 };
 
-const createTableUser = () => {
+const createTableUser = async () => {
   const query = `CREATE TABLE IF NOT EXISTS users(
         id SERIAL PRIMARY KEY,
         firstname VARCHAR(30) NOT NULL,
@@ -51,7 +51,7 @@ const createTableUser = () => {
         isAdmin BOOL DEFAULT false
   )`;
 
-  db.query(query)
+  await db.query(query)
     .then((results) => {
       console.log(results);
     })

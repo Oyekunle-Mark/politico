@@ -16,6 +16,6 @@ userRouter.post('/auth/signup', trim.body, userMiddleware.createUserCheck, creat
 userRouter.post('/auth/login', trim.body, userMiddleware.loginUserCheck, loginUserQuery);
 userRouter.post('/office/:id/register', trim.body, userMiddleware.candidateCheck, tokenAuth.tokenCheck, candidateQuery);
 userRouter.post('/votes/', trim.body, userMiddleware.voteCheck, tokenAuth.tokenCheck, voteQuery);
-userRouter.post('/office/:id/result ', tokenAuth.tokenCheck, viewResultQuery);
+userRouter.post('/office/:id/result', tokenAuth.tokenCheck, viewResultQuery);
 
 export default userRouter;

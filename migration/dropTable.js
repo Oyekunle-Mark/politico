@@ -6,7 +6,7 @@ dotenv.config();
 const db = new Pool();
 
 const dropTableParty = () => {
-  const query = 'DROP TABLE party';
+  const query = 'DROP TABLE party CASCADE';
 
   db.query(query)
     .then((results) => {
@@ -18,7 +18,7 @@ const dropTableParty = () => {
 };
 
 const dropTableOffice = () => {
-  const query = 'DROP TABLE office';
+  const query = 'DROP TABLE office CASCADE';
 
   db.query(query)
     .then((results) => {
@@ -30,7 +30,7 @@ const dropTableOffice = () => {
 };
 
 const dropTableUsers = () => {
-  const query = 'DROP TABLE users';
+  const query = 'DROP TABLE users CASCADE';
 
   db.query(query)
     .then((results) => {
