@@ -19,7 +19,7 @@ const createCandidate = (req, res) => {
       status: 201,
       data: [{
         office,
-        candidate
+        user: candidate
       }],
     });
   });

@@ -20,7 +20,7 @@ class UserMiddleware {
   static loginUserCheck(req, res, next) {
     const { email, password } = req.body;
 
-    const verifiedEmail = /[\w]+@[\w]+\.com$/.test(email);
+    const verifiedEmail = /[\w]+@[a-zA-Z]+\.com$/.test(email);
 
     if (!password || !verifiedEmail) {
       return res.status(404).json({
