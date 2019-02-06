@@ -8,7 +8,7 @@
     "coverage": "npx nyc report --reporter=text-lcov | npx coveralls",
     "lint": "npx eslint . --ext .js",
     "start": "npx nodemon index.js --exec babel-node --",
-    "migration": "babel-node migration/createTable",
+    "migration": "babel-node migration/createTable && babel-node migration/candidate",
     "drop-migration": "babel-node migration/dropTable",
     "heroku-postbuild": "npm install --production"
   },
@@ -46,8 +46,7 @@
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
     "nyc": "^13.1.0",
-    "supertest": "^3.4.2",
-    "trim-request": "^1.0.6"
+    "supertest": "^3.4.2"
   },
   "dependencies": {
     "bcrypt": "^3.0.3",
