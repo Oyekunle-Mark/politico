@@ -44,6 +44,19 @@ class UserMiddleware {
 
     next();
   }
+
+  static voteCheck(req, res, next) {
+    const { office, candidate } = req.body;
+
+    if (!office || !candidate) {
+      return res.status(404).json({
+        status: 404,
+        error: 'Make sure all fields are filled',
+      });
+    }
+
+    next();
+  }
 }
 
 export default UserMiddleware;

@@ -53,6 +53,19 @@ const dropTableCandidate = () => {
     });
 };
 
+const dropTableVote = () => {
+  const query = 'DROP TABLE vote';
+
+  db.query(query)
+    .then((results) => {
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+dropTableVote();
 dropTableCandidate();
 dropTableUsers();
 dropTableOffice();

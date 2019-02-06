@@ -60,26 +60,8 @@ const createTableUser = () => {
     });
 };
 
-// const createCandidate = () => {
-//   const query = `CREATE TABLE IF NOT EXISTS candidate(
-//           id SERIAL PRIMARY KEY,
-//           party INT NOT NULL REFERENCES party(id),
-//           office INT NOT NULL REFERENCES office(id),
-//           candidate INT NOT NULL REFERENCES users(id)
-//     )`;
-
-//   db.query(query)
-//     .then((results) => {
-//       console.log(results);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
-
 createTableParty();
 createTableOffice();
 createTableUser();
-// createCandidate();
 
 db.end();
