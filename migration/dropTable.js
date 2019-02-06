@@ -67,8 +67,8 @@ const dropTableVote = () => {
 
 dropTableVote();
 dropTableCandidate();
-dropTableUsers();
 dropTableOffice();
 dropTableParty();
+dropTableUsers();
 
 db.end();
