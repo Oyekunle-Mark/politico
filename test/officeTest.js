@@ -49,7 +49,7 @@ describe('POST /offices', () => {
       .expect(400)
       .end((err, res) => {
         expect(res.body).to.have.property('error');
-        expect(res.body.error).to.equal('Provide fields not less than 5 characters');
+        expect(res.body.error).to.equal('Ensure type is filled and is 5 characters or more');
         done(err);
       });
   });
@@ -106,9 +106,9 @@ describe('GET /offices/1', () => {
       });
   });
 
-  it('respond with status code 404 when id exceeds number of party', (done) => {
+  it('respond with status code 404 when id exceeds number of office', (done) => {
     request(app)
-      .get('/api/v1/offices/0')
+      .get('/api/v1/offices/44455')
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)

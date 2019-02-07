@@ -1,6 +1,21 @@
 import db from '../db/db';
 
 const editParty = (req, res) => {
+  if (req.user.isadmin === false) {
+    return res.status(403).json({
+      status: 403,
+      error: 'Only admins are authorized to view this page.',
+    });
+  }
+
+  const isValid = /[1-9]+/.test(req.params.id);
+  if (!isValid) {
+    return res.status(400).json({
+      status: 400,
+      error: 'Request parameter must be an integer',
+    });
+  }
+
   const id = parseInt(req.params.id, 10);
   const { name } = req.body;
 

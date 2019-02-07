@@ -19,7 +19,7 @@ describe('GET /parties empty array', () => {
       });
     });
   
-    it('respond with a 404 and error message', (done) => {
+    it('respond with a 400 and error message', (done) => {
       request(app)
         .get('/api/v1/parties/')
         .set('Accept', 'application/json')
@@ -71,10 +71,10 @@ describe('GET /parties empty array', () => {
         .send({})
         .set('x-access-token', TOKEN)
         .set('Accept', 'application/json')
-        .expect(404)
+        .expect(400)
         .end((err, res) => {
           expect(res.body).to.have.property('error');
-          expect(res.body.error).to.equal('All fields must be valid and of appropriate length');
+          expect(res.body.error).to.equal('Name must be provided and be 3 characters or more');
           done(err);
         });
     });
@@ -105,7 +105,7 @@ describe('GET /parties empty array', () => {
   
     it('respond with a status code 404 and error message when id exceed party numbers', (done) => {
       request(app)
-        .get('/api/v1/parties/0')
+        .get('/api/v1/parties/747474747')
         .set('Accept', 'application/json')
         .set('x-access-token', TOKEN)
         .expect('Content-Type', /json/)
@@ -174,7 +174,7 @@ describe('GET /parties empty array', () => {
   
     it('respond with 404 when id sent exceeds party number', (done) => {
       request(app)
-        .patch('/api/v1/parties/0/name')
+        .patch('/api/v1/parties/488848484/name')
         .send({
           "name": "test_name",
         })
@@ -207,6 +207,6 @@ describe('GET /parties empty array', () => {
     it('respond with 404', (done) => {
       request(app)
         .del('/api/v1/parties/0')
-        .expect(404, done)
+        .expect(401, done)
     });
   });

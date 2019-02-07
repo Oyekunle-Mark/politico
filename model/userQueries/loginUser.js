@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+
 import db from '../db/db';
+import GenToken from '../../middlewares/genToken';
 
 const loginUser = (req, res) => {
   const { email, password } = req.body;
@@ -17,11 +18,11 @@ const loginUser = (req, res) => {
     }
 
     if (results.rowCount > 0) {
-      const token = jwt.sign(results.rows[0], process.env.SECRET, { expiresIn: 3600 });
+      const token = GenToken.newToken(results.rows[0]);
 
       bcrypt.compare(password, results.rows[0].password, (err, result) => {
         if (result) {
-          return res.status(201).json({
+          return res.status(200).json({
             status: 200,
             data: [{
               token,

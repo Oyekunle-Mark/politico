@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+
 import db from '../db/db';
+import GenToken from '../../middlewares/genToken';
 
 const createUser = (req, res) => {
   const {
@@ -20,7 +21,7 @@ const createUser = (req, res) => {
         });
       }
 
-      const token = jwt.sign(results.rows[0], process.env.SECRET, { expiresIn: 3600 });
+      const token = GenToken.newToken(results.rows[0]);
 
       return res.status(201).json({
         status: 201,
