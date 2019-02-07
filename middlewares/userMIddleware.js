@@ -9,7 +9,7 @@ class UserMiddleware {
       || !(phoneNumber.length > 6) || !(/[\w]+:[a-zA-Z]+\.[\w]+/.test(passportUrl)) || !(password.length >= 8)) {
       return res.status(404).json({
         status: 404,
-        error: 'Fill all fields. Password must be 8 characters or',
+        error: 'Fill all fields. Password must be 8 characters or more',
       });
     }
 
