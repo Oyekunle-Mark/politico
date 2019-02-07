@@ -3,15 +3,18 @@ import { expect } from 'chai';
 
 import app from '../index';
 
+const TOKEN = process.env.TEST_TOKEN;
+
 describe('POST /offices', () => {
   it('respond with status code 201', (done) => {
     request(app)
       .post('/api/v1/offices')
       .send({
-        "type": "type",
-        "name": "name",
+        "type": "test_type",
+        "name": "test_name",
       })
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .expect(201, done)
   });
@@ -20,17 +23,18 @@ describe('POST /offices', () => {
     request(app)
       .post('/api/v1/offices')
       .send({
-        "type": "type",
-        "name": "name",
+        "type": "test_type1",
+        "name": "test_name1",
       })
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .expect(201)
       .end((err, res) => {
         expect(res.body.data[0]).to.have.property('type');
         expect(res.body.data[0]).to.have.property('name');
-        expect(res.body.data[0].name).to.equal('name');
-        expect(res.body.data[0].type).to.equal('type');
+        expect(res.body.data[0].name).to.equal('test_name1');
+        expect(res.body.data[0].type).to.equal('test_type1');
         done(err);
       });
     });
@@ -40,11 +44,12 @@ describe('POST /offices', () => {
       .post('/api/v1/offices')
       .send({})
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
-      .expect(404)
+      .expect(400)
       .end((err, res) => {
         expect(res.body).to.have.property('error');
-        expect(res.body.error).to.equal('Provide type and name of the office.');
+        expect(res.body.error).to.equal('Provide fields not less than 5 characters');
         done(err);
       });
   });
@@ -55,6 +60,7 @@ describe('GET /offices', () => {
     request(app)
       .get('/api/v1/offices')
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .expect(200, done)
   });
@@ -63,12 +69,13 @@ describe('GET /offices', () => {
     request(app)
     .get('/api/v1/offices')
     .set('Accept', 'application/json')
+    .set('x-access-token', TOKEN)
     .expect('Content-Type', /json/)
     .end((err, res) => {
       expect(res.body).to.have.property('data');
       expect(res.body.data).to.be.a('Array');
-      expect(res.body.data[0].name).to.equal('name');
-      expect(res.body.data[0].type).to.equal('type');
+      expect(res.body.data[0].name).to.equal('test_name');
+      expect(res.body.data[0].type).to.equal('test_type');
       done(err);
     })
   })
@@ -79,6 +86,7 @@ describe('GET /offices/1', () => {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .expect(200, done)
   });
@@ -87,20 +95,22 @@ describe('GET /offices/1', () => {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .end((err, res) => {
         expect(res.body.data[0]).to.have.property('name');
         expect(res.body.data[0]).to.have.property('type');
-        expect(res.body.data[0].name).to.equal('name');
-        expect(res.body.data[0].type).to.equal('type');
+        expect(res.body.data[0].name).to.equal('test_name');
+        expect(res.body.data[0].type).to.equal('test_type');
         done(err);
       });
   });
 
   it('respond with status code 404 when id exceeds number of party', (done) => {
     request(app)
-      .get('/api/v1/offices/6')
+      .get('/api/v1/offices/0')
       .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
       .expect(404)
       .end((err, res) => {
