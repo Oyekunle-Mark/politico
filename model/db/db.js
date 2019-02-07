@@ -3,6 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const db = new Pool(process.env.DATABASE_URL);
+const db = new Pool();
 
 export default db;
