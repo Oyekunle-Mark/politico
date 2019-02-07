@@ -14,6 +14,13 @@ const viewResults = (req, res) => {
       });
     }
 
+    if (results.rowCount === 0) {
+      return res.status(200).json({
+        status: 200,
+        data: 'No vote for the party yet',
+      });
+    }
+
     return res.status(200).json({
       status: 200,
       data: results.rows,

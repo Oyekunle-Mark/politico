@@ -5,15 +5,15 @@ class TokenAuth {
     const token = req.headers['x-access-token'];
 
     if (!token) {
-      return res.status(404).json({
-        status: 404,
+      return res.status(401).json({
+        status: 401,
         error: 'Provide token to access page'
       });
     }
 
     jwt.verify(token, process.env.SECRET, (err, decoded) => {
       if (err) {
-        return res.status(404).json({
+        return res.status(401).json({
           status: 401,
           error: 'Not authorized to view this page',
         });
@@ -22,6 +22,31 @@ class TokenAuth {
       req.user = decoded;
 
       next();
+    });
+  }
+
+  static adminTokenCheck(req, res, next) {
+    const token = req.headers['x-access-token'];
+
+    if (!token) {
+      return res.status(401).json({
+        status: 401,
+        error: 'Provide token to access page'
+      });
+    }
+
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+      if (decoded) {
+        req.user = decoded;
+        next();
+      }
+
+      if (err) {
+        return res.status(401).json({
+          status: 401,
+          error: 'Not authorized to view this page',
+        });
+      }
     });
   }
 }

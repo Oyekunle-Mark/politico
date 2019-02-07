@@ -4,13 +4,12 @@ class UserMiddleware {
       firstname, lastname, othername, email, phoneNumber, passportUrl, password,
     } = req.body;
 
-    const verifiedEmail = /[\w]+@[\w]+\.com$/.test(email);
-
-    if (!firstname || !lastname || !othername || !verifiedEmail
-      || !phoneNumber || !passportUrl || !password) {
+    if (!firstname || !lastname || !othername || !email
+      || !phoneNumber || !passportUrl || !password || !(firstname.length >= 3) || !(lastname.length >= 3) || !(othername.length >= 3) || !(/[\w]+@[a-zA-Z]+\.com$/.test(email))
+      || !(phoneNumber.length > 6) || !(/[\w]+:[a-zA-Z]+\.[\w]+/.test(passportUrl)) || !(password.length >= 8)) {
       return res.status(404).json({
         status: 404,
-        error: 'Make sure all fields are filled',
+        error: 'Fill all fields. Password must be 8 characters or',
       });
     }
 
@@ -20,12 +19,10 @@ class UserMiddleware {
   static loginUserCheck(req, res, next) {
     const { email, password } = req.body;
 
-    const verifiedEmail = /[\w]+@[a-zA-Z]+\.com$/.test(email);
-
-    if (!password || !verifiedEmail) {
+    if (!password || !email || !(password.length >= 8) || !(/[\w]+@[a-zA-Z]+\.com$/.test(email))) {
       return res.status(404).json({
         status: 404,
-        error: 'Make sure all fields are filled',
+        error: 'Enter a valid email and a password 8 characters or longer.',
       });
     }
 
