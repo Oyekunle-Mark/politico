@@ -1,5 +1,8 @@
 import express from 'express';
 import trim from 'trim-request';
+import swaggerUi from 'swagger-ui-express';
+
+import swaggerDocument from '../swagger.json';
 
 import partyMiddleware from '../middlewares/partyMiddleware';
 import tokenAuth from '../middlewares/tokenAuth';
@@ -11,6 +14,10 @@ import editPartyQuery from '../model/partyQueries/editParty';
 import deletePartyQuery from '../model/partyQueries/deleteParty';
 
 const partyRouter = express.Router();
+
+// the swagger api documentation
+partyRouter.use('/', swaggerUi.serve);
+partyRouter.get('/', swaggerUi.setup(swaggerDocument));
 
 partyRouter.post('/parties', trim.body, tokenAuth.tokenCheck, partyMiddleware.createPartyCheck, createPartyQuery);
 partyRouter.get('/parties/:id', tokenAuth.tokenCheck, getPartyQuery);

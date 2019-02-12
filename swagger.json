@@ -1,0 +1,703 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Politico",
+    "description": "Politico is a voting platform",
+    "contact": {}
+  },
+  "host": "politiko.herokuapp.com",
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/auth/signup": {
+      "post": {
+        "description": "TODO: Add Description",
+        "summary": "politiko.herokuapp.com/api/v1/auth/signup",
+        "tags": [
+          "signup"
+        ],
+        "operationId": "AuthSignupPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1auth~1signupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/parties": {
+      "post": {
+        "description": "This api enables admin to create political parties",
+        "summary": "politiko.herokuapp.com/api/v1/parties",
+        "tags": [
+          "parties"
+        ],
+        "operationId": "PartiesPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1partiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "To get all parties",
+        "summary": "politiko.herokuapp.com/api/v1/parties/",
+        "tags": [
+          "parties"
+        ],
+        "operationId": "PartiesGet",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/parties/6": {
+      "get": {
+        "description": "To get a specific party",
+        "summary": "politiko.herokuapp.com/api/v1/parties/6",
+        "tags": [
+          "parties"
+        ],
+        "operationId": "Parties6Get",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/parties/8/name": {
+      "patch": {
+        "description": "To edit the name of a specific political party",
+        "summary": "politiko.herokuapp.com/api/v1/parties/8/name",
+        "tags": [
+          "parties"
+        ],
+        "operationId": "Parties8NamePatch",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1parties~18~1nameRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/parties/8": {
+      "delete": {
+        "description": "To delete a political party",
+        "summary": "politiko.herokuapp.com/api/v1/parties/8",
+        "tags": [
+          "parties"
+        ],
+        "operationId": "Parties8Delete",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1partiesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/offices": {
+      "post": {
+        "description": "To create a political office",
+        "summary": "politiko.herokuapp.com/api/v1/offices",
+        "tags": [
+          "offices"
+        ],
+        "operationId": "OfficesPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1officesRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "get": {
+        "description": "To get all political offices",
+        "summary": "politiko.herokuapp.com/api/v1/offices/",
+        "tags": [
+          "offices"
+        ],
+        "operationId": "OfficesGet",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/offices/8": {
+      "get": {
+        "description": "To get a specific political office",
+        "summary": "politiko.herokuapp.com/api/v1/offices/8",
+        "tags": [
+          "offices"
+        ],
+        "operationId": "Offices8Get",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/office/10/register": {
+      "post": {
+        "description": "To register a user as a candidate for a political office",
+        "summary": "politiko.herokuapp.com/api/v1/office/10/register",
+        "tags": [
+          "register"
+        ],
+        "operationId": "Office10RegisterPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1office~110~1registerRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/votes": {
+      "post": {
+        "description": "To vote a candidate for a political office",
+        "summary": "politiko.herokuapp.com/api/v1/votes/",
+        "tags": [
+          "votes"
+        ],
+        "operationId": "VotesPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1votes~1Request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/office/8/result": {
+      "post": {
+        "description": "To view the result of an election",
+        "summary": "politiko.herokuapp.com/api/v1/office/8/result",
+        "tags": [
+          "result"
+        ],
+        "operationId": "Office8ResultPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "politiko.herokuapp.com/api/v1/auth/signupRequest": {
+      "title": "politiko.herokuapp.com/api/v1/auth/signupRequest",
+      "example": {
+        "firstname": "johnbul",
+        "lastname": "carpenter",
+        "othername": "stone",
+        "email": "john@gmail.com",
+        "phoneNumber": "8809009989",
+        "passportUrl": "https:goal.com",
+        "password": "12345678"
+      },
+      "type": "object",
+      "properties": {
+        "firstname": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "othername": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "passportUrl": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstname",
+        "lastname",
+        "othername",
+        "email",
+        "phoneNumber",
+        "passportUrl",
+        "password"
+      ]
+    },
+    "politiko.herokuapp.com/api/v1/partiesRequest": {
+      "title": "politiko.herokuapp.com/api/v1/partiesRequest",
+      "example": {
+        "name": "pdp",
+        "hqAddress": "lagos, nigeria",
+        "logoUrl": "logo:logo.com"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "hqAddress": {
+          "type": "string"
+        },
+        "logoUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "hqAddress",
+        "logoUrl"
+      ]
+    },
+    "politiko.herokuapp.com/api/v1/parties/8/nameRequest": {
+      "title": "politiko.herokuapp.com/api/v1/parties/8/nameRequest",
+      "example": {
+        "name": "apn"
+      },
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "politiko.herokuapp.com/api/v1/officesRequest": {
+      "title": "politiko.herokuapp.com/api/v1/officesRequest",
+      "example": {
+        "type": "federal",
+        "name": "senate"
+      },
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "name"
+      ]
+    },
+    "politiko.herokuapp.com/api/v1/office/10/registerRequest": {
+      "title": "politiko.herokuapp.com/api/v1/office/10/registerRequest",
+      "example": {
+        "office": 8,
+        "party": 6,
+        "candidate": 10
+      },
+      "type": "object",
+      "properties": {
+        "office": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "party": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "candidate": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "office",
+        "party",
+        "candidate"
+      ]
+    },
+    "politiko.herokuapp.com/api/v1/votes/Request": {
+      "title": "politiko.herokuapp.com/api/v1/votes/Request",
+      "example": {
+        "office": 9,
+        "candidate": 2
+      },
+      "type": "object",
+      "properties": {
+        "office": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "candidate": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "office",
+        "candidate"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "signup",
+      "description": "This is the signup api of the politico app"
+    },
+    {
+      "name": "login"
+    },
+    {
+      "name": "parties"
+    },
+    {
+      "name": "offices"
+    },
+    {
+      "name": "register"
+    },
+    {
+      "name": "votes"
+    },
+    {
+      "name": "result"
+    }
+  ]
+}
