@@ -4,12 +4,12 @@
   "description": "**The Andela Developer Challenge Project**.",
   "main": "index.js",
   "scripts": {
-    "test": "npx nyc --reporter=html --reporter=text npx mocha --exit --require babel-polyfill --require babel-register",
+    "test": "npm run drop-migration && npm run migration && npx nyc --reporter=html --reporter=text npx mocha --exit --require babel-polyfill --require babel-register",
     "coverage": "npx nyc report --reporter=text-lcov | npx coveralls",
     "lint": "npx eslint . --ext .js",
     "start": "npx nodemon index.js --exec babel-node --",
-    "migration": "babel-node migration/createTable && babel-node migration/candidate",
-    "drop-migration": "babel-node migration/dropTable && babel-node migration/dropTable",
+    "migration": "babel-node migration/createTable",
+    "drop-migration": "babel-node migration/dropTable",
     "heroku-postbuild": "npm install --production"
   },
   "engines": {
