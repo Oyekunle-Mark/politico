@@ -14,8 +14,8 @@ const userRouter = express.Router();
 
 userRouter.post('/auth/signup', trim.body, userMiddleware.createUserCheck, createUserQuery);
 userRouter.post('/auth/login', trim.body, userMiddleware.loginUserCheck, loginUserQuery);
-userRouter.post('/office/:id/register', trim.body, userMiddleware.candidateCheck, tokenAuth.tokenCheck, candidateQuery);
-userRouter.post('/votes/', trim.body, userMiddleware.voteCheck, tokenAuth.tokenCheck, voteQuery);
+userRouter.post('/office/:id/register', trim.body, tokenAuth.tokenCheck, userMiddleware.candidateCheck, candidateQuery);
+userRouter.post('/votes/', trim.body, tokenAuth.tokenCheck, userMiddleware.voteCheck, voteQuery);
 userRouter.post('/office/:id/result', tokenAuth.tokenCheck, viewResultQuery);
 
 export default userRouter;

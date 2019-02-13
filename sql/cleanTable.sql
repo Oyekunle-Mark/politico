@@ -1,0 +1,5 @@
+DELETE FROM party;
+DELETE FROM office;
+DELETE FROM users;
+DELETE FROM candidate;
+DELETE FROM vote;

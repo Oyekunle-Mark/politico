@@ -4,13 +4,52 @@ class UserMiddleware {
       firstname, lastname, othername, email, phoneNumber, passportUrl, password,
     } = req.body;
 
-    const verifiedEmail = /[\w]+@[\w]+\.com$/.test(email);
+    if (!firstname || !(firstname.length >= 3)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide name of 3 characters or more',
+      });
+    }
 
-    if (!firstname || !lastname || !othername || !verifiedEmail
-      || !phoneNumber || !passportUrl || !password) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Make sure all fields are filled',
+    if (!lastname || !(lastname.length >= 3)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Last name must be provided and be 3 characters or more',
+      });
+    }
+
+    if (!othername || !(othername.length >= 3)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Other name must be provided and be 3 characters or more',
+      });
+    }
+
+    if (!email || !(/[\w]+@[a-zA-Z]+\.com$/.test(email))) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Make sure you provide a vaid email address',
+      });
+    }
+
+    if (!phoneNumber || !(phoneNumber.length > 6)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide a phone number of 7 digits or more',
+      });
+    }
+
+    if (!passportUrl || !(/[\w]+:[a-zA-Z]+\.[\w]+/.test(passportUrl))) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Ensure you provide a valid passportUrl field',
+      });
+    }
+
+    if (!password || !(password.length >= 8)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide password of 8 or more characters.',
       });
     }
 
@@ -20,12 +59,17 @@ class UserMiddleware {
   static loginUserCheck(req, res, next) {
     const { email, password } = req.body;
 
-    const verifiedEmail = /[\w]+@[a-zA-Z]+\.com$/.test(email);
+    if (!password || !(password.length >= 8)) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide password of 8 or more characters.',
+      });
+    }
 
-    if (!password || !verifiedEmail) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Make sure all fields are filled',
+    if (!email || !(/[\w]+@[a-zA-Z]+\.com$/.test(email))) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Make sure you provide a valid email address',
       });
     }
 
@@ -35,10 +79,17 @@ class UserMiddleware {
   static candidateCheck(req, res, next) {
     const { party, office } = req.body;
 
-    if (!party || !office) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Make sure all fields are filled',
+    if (!party) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide party',
+      });
+    }
+
+    if (!office) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Provide office',
       });
     }
 
@@ -48,10 +99,17 @@ class UserMiddleware {
   static voteCheck(req, res, next) {
     const { office, candidate } = req.body;
 
-    if (!office || !candidate) {
-      return res.status(404).json({
-        status: 404,
-        error: 'Make sure all fields are filled',
+    if (!office) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Enter office',
+      });
+    }
+
+    if (!candidate) {
+      return res.status(400).json({
+        status: 400,
+        error: 'Enter candidate',
       });
     }
 

@@ -6,7 +6,11 @@ dotenv.config();
 const db = new Pool();
 
 const dropTableParty = () => {
-  const query = 'DROP TABLE party CASCADE';
+  const query = `DROP TABLE party CASCADE;
+  DROP TABLE office CASCADE;
+  DROP TABLE users CASCADE;
+  DROP TABLE candidate CASCADE;
+  DROP TABLE vote CASCADE;`;
 
   db.query(query)
     .then((results) => {
@@ -17,58 +21,6 @@ const dropTableParty = () => {
     });
 };
 
-const dropTableOffice = () => {
-  const query = 'DROP TABLE office CASCADE';
-
-  db.query(query)
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const dropTableUsers = () => {
-  const query = 'DROP TABLE users CASCADE';
-
-  db.query(query)
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const dropTableCandidate = () => {
-  const query = 'DROP TABLE candidate';
-
-  db.query(query)
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-const dropTableVote = () => {
-  const query = 'DROP TABLE vote';
-
-  db.query(query)
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-dropTableVote();
-dropTableCandidate();
-dropTableOffice();
 dropTableParty();
-dropTableUsers();
 
 db.end();

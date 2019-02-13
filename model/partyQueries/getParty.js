@@ -3,6 +3,14 @@ import db from '../db/db';
 const getParty = (req, res) => {
   const id = parseInt(req.params.id, 10);
 
+  const isValid = /[1-9]+/.test(req.params.id);
+  if (!isValid) {
+    return res.status(400).json({
+      status: 400,
+      error: 'Request parameter must be an integer',
+    });
+  }
+
   const text = 'SELECT name, logourl FROM party WHERE id=$1';
   const values = [id];
 

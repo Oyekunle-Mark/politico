@@ -1,6 +1,13 @@
 import db from '../db/db';
 
 const createParty = (req, res) => {
+  if (req.user.isadmin === false) {
+    return res.status(403).json({
+      status: 403,
+      error: 'Only admins are authorized to view this page.',
+    });
+  }
+
   const { name, hqAddress, logoUrl } = req.body;
 
   const text = 'INSERT INTO party(name, hqAddress, logoUrl) VALUES($1, $2, $3) RETURNING *';

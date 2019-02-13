@@ -10,7 +10,7 @@ import getOfficeQuery from '../model/officeQueries/getOffice';
 
 const officeRouter = express.Router();
 
-officeRouter.post('/offices', trim.body, officeMiddleware.createOfficeCheck, tokenAuth.tokenCheck, createOfficeQuery);
+officeRouter.post('/offices', trim.body, tokenAuth.tokenCheck, officeMiddleware.createOfficeCheck, createOfficeQuery);
 officeRouter.get('/offices', tokenAuth.tokenCheck, getAllOfficeQuery);
 officeRouter.get('/offices/:id', tokenAuth.tokenCheck, getOfficeQuery);
 
