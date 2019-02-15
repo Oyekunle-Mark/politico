@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0",
     "title": "Politico",
-    "description": "Politico is a voting platform",
+    "description": "Politico is a voting platform where users can vote for candidates of their choice and view the results of elections in real time. It also supports the admin(electoral body) adding, editing and deleting political parties and offices.",
     "contact": {}
   },
   "host": "politiko.herokuapp.com",
@@ -20,7 +20,7 @@
   "paths": {
     "/auth/signup": {
       "post": {
-        "description": "TODO: Add Description",
+        "description": "Sign up as a user.",
         "summary": "politiko.herokuapp.com/api/v1/auth/signup",
         "tags": [
           "signup"
@@ -52,6 +52,51 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1auth~1signupRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "description": "Allows users to login",
+        "summary": "politiko.herokuapp.com/api/v1/auth/login",
+        "tags": [
+          "login"
+        ],
+        "operationId": "AuthLoginPost",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "x-access-token",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/politiko.herokuapp.com~1api~1v1~1auth~1loginRequest"
             }
           }
         ],
@@ -108,7 +153,7 @@
         }
       },
       "get": {
-        "description": "To get all parties",
+        "description": "To get all parties. Available to all users",
         "summary": "politiko.herokuapp.com/api/v1/parties/",
         "tags": [
           "parties"
@@ -144,7 +189,7 @@
     },
     "/parties/6": {
       "get": {
-        "description": "To get a specific party",
+        "description": "To get a specific party. Available to all users.",
         "summary": "politiko.herokuapp.com/api/v1/parties/6",
         "tags": [
           "parties"
@@ -180,7 +225,7 @@
     },
     "/parties/8/name": {
       "patch": {
-        "description": "To edit the name of a specific political party",
+        "description": "To edit the name of a specific political party. Only admins",
         "summary": "politiko.herokuapp.com/api/v1/parties/8/name",
         "tags": [
           "parties"
@@ -225,7 +270,7 @@
     },
     "/parties/8": {
       "delete": {
-        "description": "To delete a political party",
+        "description": "To delete a political party. Only admins",
         "summary": "politiko.herokuapp.com/api/v1/parties/8",
         "tags": [
           "parties"
@@ -270,7 +315,7 @@
     },
     "/offices": {
       "post": {
-        "description": "To create a political office",
+        "description": "To create a political office. Admins only",
         "summary": "politiko.herokuapp.com/api/v1/offices",
         "tags": [
           "offices"
@@ -313,7 +358,7 @@
         }
       },
       "get": {
-        "description": "To get all political offices",
+        "description": "To get all political offices. All users",
         "summary": "politiko.herokuapp.com/api/v1/offices/",
         "tags": [
           "offices"
@@ -349,7 +394,7 @@
     },
     "/offices/8": {
       "get": {
-        "description": "To get a specific political office",
+        "description": "To get a specific political office. All users.",
         "summary": "politiko.herokuapp.com/api/v1/offices/8",
         "tags": [
           "offices"
@@ -565,6 +610,26 @@
         "password"
       ]
     },
+    "politiko.herokuapp.com/api/v1/auth/loginRequest": {
+      "title": "politiko.herokuapp.com/api/v1/auth/loginRequest",
+      "example": {
+        "email": "john@gmail.com",
+        "password": "12345678"
+      },
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email",
+        "password"
+      ]
+    },
     "politiko.herokuapp.com/api/v1/partiesRequest": {
       "title": "politiko.herokuapp.com/api/v1/partiesRequest",
       "example": {
@@ -679,25 +744,31 @@
   "tags": [
     {
       "name": "signup",
-      "description": "This is the signup api of the politico app"
+      "description": "This is the signup API of the politico app. Users can register on the platform with this API"
     },
     {
-      "name": "login"
+      "name": "login",
+      "description": "The login API of the app. Users who have registered on the platform can sign in with this API"
     },
     {
-      "name": "parties"
+      "name": "parties",
+      "description": "This set of APIs allows users and admin to perform electoral operations related to political parties. The admin can create, edit and delete political parties. All users(admin inclusive) can view all political parties or a specific political party."
     },
     {
-      "name": "offices"
+      "name": "offices",
+      "description": "This set of APIs allows the admin to create political offices. All users can also view a specific political office or choose to view all political offices."
     },
     {
-      "name": "register"
+      "name": "register",
+      "description": "This API allows users to register as a candidate for a political office. This API is available to all users."
     },
     {
-      "name": "votes"
+      "name": "votes",
+      "description": "With this API, users can vote a candidate of their choice."
     },
     {
-      "name": "result"
+      "name": "result",
+      "description": "This API allows users to view the results of elections."
     }
   ]
 }
