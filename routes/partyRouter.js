@@ -1,7 +1,6 @@
 import express from 'express';
 import trim from 'trim-request';
 import swaggerUi from 'swagger-ui-express';
-import cors from 'cors';
 
 import swaggerDocument from '../swagger.json';
 
@@ -15,9 +14,6 @@ import editPartyQuery from '../model/partyQueries/editParty';
 import deletePartyQuery from '../model/partyQueries/deleteParty';
 
 const partyRouter = express.Router();
-
-// enable cors preflight for the patch request
-partyRouter.options('/parties/:id/name', cors());
 
 // the swagger api documentation
 partyRouter.use('/', swaggerUi.serve);

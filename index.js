@@ -13,6 +13,7 @@ const app = express();
 
 // enable cors
 app.use(cors());
+app.options('/parties/:id/name', cors());
 
 //  use the morgan logging  middleware
 app.use(morgan('short'));
