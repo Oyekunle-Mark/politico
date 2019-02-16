@@ -22,7 +22,11 @@ partyRouter.get('/', swaggerUi.setup(swaggerDocument));
 partyRouter.post('/parties', trim.body, tokenAuth.tokenCheck, partyMiddleware.createPartyCheck, createPartyQuery);
 partyRouter.get('/parties/:id', tokenAuth.tokenCheck, getPartyQuery);
 partyRouter.get('/parties/', tokenAuth.tokenCheck, getAllPartyQuery);
-partyRouter.patch('/parties/:id/name', trim.body, tokenAuth.tokenCheck, partyMiddleware.editSpecificPartyCheck, editPartyQuery);
+partyRouter.patch('/parties/:id/name', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, PATCH, OPTIONS');
+       next();}, trim.body, tokenAuth.tokenCheck, partyMiddleware.editSpecificPartyCheck, editPartyQuery);
 partyRouter.delete('/parties/:id', tokenAuth.tokenCheck, deletePartyQuery);
 
 export default partyRouter;
