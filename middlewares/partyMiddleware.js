@@ -1,6 +1,5 @@
 class PartyMiddleware {
   static createPartyCheck(req, res, next) {
-    const { logoUrl } = req.body;
     if (!req.body.name || req.body.name.length < 3) {
       return res.status(400).json({
         status: 400,
@@ -15,10 +14,10 @@ class PartyMiddleware {
       });
     }
 
-    if (!req.body.logoUrl || !(/[\w]+:[\w]+\.[a-zA-Z]+/.test(logoUrl))) {
+    if (!req.file) {
       return res.status(400).json({
         status: 400,
-        error: 'Make sure you pass a valid logoUrl field',
+        error: 'Please provide a party logo.',
       });
     }
 

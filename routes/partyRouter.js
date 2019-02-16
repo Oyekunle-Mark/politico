@@ -6,6 +6,7 @@ import swaggerDocument from '../swagger.json';
 
 import partyMiddleware from '../middlewares/partyMiddleware';
 import tokenAuth from '../middlewares/tokenAuth';
+import imageParser from '../middlewares/imageMiddleware';
 
 import createPartyQuery from '../model/partyQueries/createParty';
 import getPartyQuery from '../model/partyQueries/getParty';
@@ -19,7 +20,7 @@ const partyRouter = express.Router();
 partyRouter.use('/', swaggerUi.serve);
 partyRouter.get('/', swaggerUi.setup(swaggerDocument));
 
-partyRouter.post('/parties', trim.body, tokenAuth.tokenCheck, partyMiddleware.createPartyCheck, createPartyQuery);
+partyRouter.post('/parties', trim.body, imageParser.single('logoUrl'), tokenAuth.tokenCheck, partyMiddleware.createPartyCheck, createPartyQuery);
 partyRouter.get('/parties/:id', tokenAuth.tokenCheck, getPartyQuery);
 partyRouter.get('/parties/', tokenAuth.tokenCheck, getAllPartyQuery);
 partyRouter.patch('/parties/:id/name', trim.body, tokenAuth.tokenCheck, partyMiddleware.editSpecificPartyCheck, editPartyQuery);

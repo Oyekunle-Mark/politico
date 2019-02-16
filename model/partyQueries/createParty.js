@@ -8,7 +8,8 @@ const createParty = (req, res) => {
     });
   }
 
-  const { name, hqAddress, logoUrl } = req.body;
+  const logoUrl = req.file.url;
+  const { name, hqAddress } = req.body;
 
   const text = 'INSERT INTO party(name, hqAddress, logoUrl) VALUES($1, $2, $3) RETURNING *';
   const values = [name, hqAddress, logoUrl];

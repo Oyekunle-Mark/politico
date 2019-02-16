@@ -1,7 +1,7 @@
 class UserMiddleware {
   static createUserCheck(req, res, next) {
     const {
-      firstname, lastname, othername, email, phoneNumber, passportUrl, password,
+      firstname, lastname, othername, email, phoneNumber, password,
     } = req.body;
 
     if (!firstname || !(firstname.length >= 3)) {
@@ -39,10 +39,10 @@ class UserMiddleware {
       });
     }
 
-    if (!passportUrl || !(/[\w]+:[a-zA-Z]+\.[\w]+/.test(passportUrl))) {
+    if (!req.file) {
       return res.status(400).json({
         status: 400,
-        error: 'Ensure you provide a valid passportUrl field',
+        error: 'Provide a passport of type jpg or png',
       });
     }
 
