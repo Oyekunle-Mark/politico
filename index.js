@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
@@ -9,6 +10,9 @@ import userRouter from './routes/userRouter';
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+// enable cors
+app.use(cors());
 
 //  use the morgan logging  middleware
 app.use(morgan('short'));
