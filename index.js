@@ -1,7 +1,8 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-// import cors from 'cors';
+
+import crossOrigin from './middlewares/allowCrossOrigin';
 
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
@@ -11,16 +12,8 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-// enable cors
-// app.use(cors());
-// app.options('/parties/:id/name', cors());
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, PATCH, OPTIONS');
-     next();
-});
+// use the cross origin middleware
+app.use(crossOrigin);
 
 //  use the morgan logging  middleware
 app.use(morgan('short'));
