@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import cors from 'cors';
+// import cors from 'cors';
 
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
@@ -11,9 +11,22 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-// enable cors
-app.use(cors());
-app.options('/parties/:id/name', cors());
+// // enable cors
+// app.use(cors());
+// app.options('/parties/:id/name', cors());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+
+  // allow preflight
+  if (req.method === 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 
 //  use the morgan logging  middleware
 app.use(morgan('short'));
