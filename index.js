@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
+import crossOrigin from './middlewares/allowCrossOrigin';
+
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
 import userRouter from './routes/userRouter';
@@ -9,6 +11,9 @@ import userRouter from './routes/userRouter';
 const port = process.env.PORT || 3000;
 
 const app = express();
+
+// use the cross origin middleware
+app.use(crossOrigin);
 
 //  use the morgan logging  middleware
 app.use(morgan('short'));

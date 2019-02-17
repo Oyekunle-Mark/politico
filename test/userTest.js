@@ -34,7 +34,7 @@ describe('POST /auth/signup ', () => {
             .set('Accept', 'application/json')
             .set('x-access-token', TOKEN)
             .expect('Content-Type', /json/)
-            .expect(201)
+            .expect(400)
             .end((err, res) => {
                 expect(res.body).to.be.a("object");
                 done(err);

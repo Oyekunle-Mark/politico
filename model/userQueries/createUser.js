@@ -4,8 +4,9 @@ import db from '../db/db';
 import GenToken from '../../middlewares/genToken';
 
 const createUser = (req, res) => {
+  const passportUrl = req.file.url;
   const {
-    firstname, lastname, othername, email, phoneNumber, passportUrl, password,
+    firstname, lastname, othername, email, phoneNumber, password,
   } = req.body;
   const saltRounds = 10;
 
