@@ -539,6 +539,31 @@ footer {
 	display: block;
 }
 
+.hidden {
+  display: none;
+}
+
+.alert {
+  font-weight: bold;
+  background: red;
+  color: white;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  z-index: 2;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  text-align: center;
+}
+
+.alert span {
+  position: fixed;
+  right: 0;
+  top: 0;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
 /* for tablet and desktop */
 @media only screen and (min-width: 767px) {
     
