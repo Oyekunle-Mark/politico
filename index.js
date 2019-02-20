@@ -7,6 +7,7 @@ import crossOrigin from './middlewares/allowCrossOrigin';
 import officeRouter from './routes/officeRouter';
 import partyRouter from './routes/partyRouter';
 import userRouter from './routes/userRouter';
+import authRouter from './routes/authRouter';
 
 const port = process.env.PORT || 3000;
 
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use('/api/v1', partyRouter);
 app.use('/api/v1', officeRouter);
 app.use('/api/v1', userRouter);
+app.use('/api/v1', authRouter);
 
 // respond to bad request
 app.use((req, res) => {
