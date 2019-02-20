@@ -2,7 +2,7 @@ const redirect = url => {
   location.href = url;
 };
 
-const accessCheck = e => {
+const adminAccessCheck = e => {
 
   fetch('https://politiko.herokuapp.com/api/v1/auth', {
     method: "post",
@@ -15,10 +15,10 @@ const accessCheck = e => {
     .then(async data => {
       if (data.status === 401 || data.status === 400) {
         redirect('https://oyekunle-mark.github.io/politico/sign_in.html');
-      } else if (data.data.isadmin === true) {
-        redirect('https://oyekunle-mark.github.io/politico/admin.html')
+      } else if (data.data.isadmin === false) {
+        redirect('https://oyekunle-mark.github.io/politico/user_home.html')
       }
     });
 }
 
-accessCheck();
+adminAccessCheck();
