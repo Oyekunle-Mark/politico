@@ -10,21 +10,21 @@ describe('POST /offices', () => {
     request(app)
       .post('/api/v1/offices')
       .send({
-        "type": "test_type",
-        "name": "test_name",
+        type: 'test_type',
+        name: 'test_name',
       })
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
-      .expect(201, done)
+      .expect(201, done);
   });
 
   it('respond with office name and type', (done) => {
     request(app)
       .post('/api/v1/offices')
       .send({
-        "type": "test_type1",
-        "name": "test_name1",
+        type: 'test_type1',
+        name: 'test_name1',
       })
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
@@ -37,10 +37,10 @@ describe('POST /offices', () => {
         expect(res.body.data[0].type).to.equal('test_type1');
         done(err);
       });
-    });
+  });
 
-    it('respond with a status code 404', (done) => {
-      request(app)
+  it('respond with a status code 404', (done) => {
+    request(app)
       .post('/api/v1/offices')
       .send({})
       .set('Accept', 'application/json')
@@ -62,33 +62,33 @@ describe('GET /offices', () => {
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(200, done);
   });
 
   it('respond with an array of object', (done) => {
     request(app)
-    .get('/api/v1/offices')
-    .set('Accept', 'application/json')
-    .set('x-access-token', TOKEN)
-    .expect('Content-Type', /json/)
-    .end((err, res) => {
-      expect(res.body).to.have.property('data');
-      expect(res.body.data).to.be.a('Array');
-      expect(res.body.data[0].name).to.equal('test_name');
-      expect(res.body.data[0].type).to.equal('test_type');
-      done(err);
-    })
-  })
+      .get('/api/v1/offices')
+      .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        expect(res.body).to.have.property('data');
+        expect(res.body.data).to.be.a('Array');
+        expect(res.body.data[0].name).to.equal('test_name');
+        expect(res.body.data[0].type).to.equal('test_type');
+        done(err);
+      });
+  });
 });
 
 describe('GET /offices/1', () => {
-  it('respond with status code 200',(done) => {
+  it('respond with status code 200', (done) => {
     request(app)
       .get('/api/v1/offices/1')
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
-      .expect(200, done)
+      .expect(200, done);
   });
 
   it('respond with a single object with data array', (done) => {
