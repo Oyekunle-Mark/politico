@@ -16,10 +16,10 @@ const storeToken = token => {
 
 const signIn = e => {
   e.preventDefault();
-  
+
   fetch("https://politiko.herokuapp.com/api/v1/auth/login", {
     method: "post",
-    headers: {'content-type': 'application/json'},
+    headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       "email": document.getElementById("email").value,
       "password": document.getElementById("password").value
