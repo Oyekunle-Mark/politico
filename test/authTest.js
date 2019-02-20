@@ -5,10 +5,10 @@ import app from '../index';
 
 const TOKEN = process.env.TEST_TOKEN;
 
-describe('GET /auth', () => {
+describe('POST /auth', () => {
   it('respond with a 400 when a token is not sent', (done) => {
     request(app)
-      .get('/api/v1/auth')
+      .post('/api/v1/auth')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(400)
@@ -21,7 +21,7 @@ describe('GET /auth', () => {
 
   it('respond with user object', (done) => {
     request(app)
-      .get('/api/v1/auth')
+      .post('/api/v1/auth')
       .send({
         token: TOKEN
       })

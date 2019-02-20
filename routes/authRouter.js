@@ -7,6 +7,6 @@ import authToken from '../model/authToken';
 
 const authRouter = Router();
 
-authRouter.get('/auth', trim.body, authMiddleware.auth, authToken.decryptToken);
+authRouter.post('/auth', trim.body, authMiddleware.auth, authToken.decryptToken);
 
 export default authRouter;
