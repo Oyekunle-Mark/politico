@@ -16,7 +16,7 @@ const accessCheck = async (e) => {
         redirect('https://oyekunle-mark.github.io/politico/sign_in.html')
       }
 
-      document.getElementsByName('body').innerHtml = `
+      document.getElementsByName('body').innerHTML = `
       <header>
       <h1><a href="user_home.html">Politico</a></h1>
   
