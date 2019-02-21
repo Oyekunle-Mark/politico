@@ -24,14 +24,15 @@
     </nav>
   </header>
 
+  <section class="adminAlert hidden"><div>hi</div></section>
   <section>
     <article>
-      <form>
+      <form class="createPartyForm" method="post">
         <h3>Register Party</h3>
-        <input type="text" placeholder="Party name" required />
-        <input type="text" placeholder="Address" required />
+        <input type="text" name="name" placeholder="Party name" required />
+        <input type="text" name="hqAddress" placeholder="Address" required />
         <label>Upload logo</label>
-        <input type="file" accept="image/*" required />
+        <input type="file" name="logoUrl" accept="image/*" required />
         <button type="submit">Submit</button>
       </form>
     </article>
@@ -110,6 +111,8 @@
     <p>&copy; 2019 Politico</p>
     <p>All rights reserved</p>
   </footer>
+
+  <script type="text/javascript" src="js/admin.js"></script>
 </body>
 
 </html>
