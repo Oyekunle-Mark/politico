@@ -18,15 +18,15 @@ const createParty = e => {
     .then(data => {
       if (data.status === 201) {
         alertMessage.textContent = "Party created.";
-        alert.classList.remove("hidden");
+        alertMessage.classList.remove("hidden");
         setTimeout(() => {
-          alert.classList.add("hidden");
+          alertMessage.classList.add("hidden");
         }, 2000);
       } else if (data.status === 500) {
         alertMessage.textContent = "Party name already exist."
-        alert.classList.remove("hidden");
+        alertMessage.classList.remove("hidden");
         setTimeout(() => {
-          alert.classList.add("hidden");
+          alertMessage.classList.add("hidden");
         }, 2000);
       }
     });
@@ -59,15 +59,15 @@ const createOffice = e => {
     .then(data => {
       if (data.status === 201) {
         alertMessage.textContent = "Office created.";
-        alert.classList.remove("hidden");
+        alertMessage.classList.remove("hidden");
         setTimeout(() => {
-          alert.classList.add("hidden");
+          alertMessage.classList.add("hidden");
         }, 2000);
       } else if (data.status === 500) {
         alertMessage.textContent = "Office name already exist."
-        alert.classList.remove("hidden");
+        alertMessage.classList.remove("hidden");
         setTimeout(() => {
-          alert.classList.add("hidden");
+          alertMessage.classList.add("hidden");
         }, 2000);
       }
     });

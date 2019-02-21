@@ -565,6 +565,7 @@ footer {
 }
 
 .adminAlert {
+    height: 1rem;
     padding: 0.5rem;
     color: red;
     font-weight: bold;
