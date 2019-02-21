@@ -37,23 +37,23 @@
       </form>
     </article>
     <article>
-      <form>
+      <form class="createOfficeForm" method="post">
         <h3>Create office</h3>
-        <select class="createSelect">
+        <select class="createSelect" id="officeType">
           <option selected disabled>Office type</option>
           <option>Federal</option>
           <option>Legislative</option>
           <option>State</option>
           <option>Local</option>
         </select>
-        <select class="createSelect">
+        <select class="createSelect" id="officeName">
           <option selected disabled>Office name</option>
           <option>Presidential</option>
           <option>Governorship</option>
           <option>House of assembly</option>
           <option>House of representative</option>
         </select>
-        <input type="text" placeholder="Office code" required />
+        <input type="text" placeholder="Office code" />
         <button type="submit" class="createButton">Submit</button>
       </form>
     </article>
