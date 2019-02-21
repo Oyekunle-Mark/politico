@@ -24,15 +24,15 @@
     </nav>
   </header>
 
-  <section class="adminAlert"><div></div></section>
+  <section class="adminAlert hidden"><div>hi</div></section>
   <section>
     <article>
       <form class="createPartyForm" method="post">
         <h3>Register Party</h3>
-        <input type="text" placeholder="Party name" required />
-        <input type="text" placeholder="Address" required />
+        <input type="text" name="name" placeholder="Party name" required />
+        <input type="text" name="hqAddress" placeholder="Address" required />
         <label>Upload logo</label>
-        <input type="file" accept="image/*" required />
+        <input type="file" name="logoUrl" accept="image/*" required />
         <button type="submit">Submit</button>
       </form>
     </article>

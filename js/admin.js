@@ -1,5 +1,5 @@
-const alert = document.querySelector(".adminAlert");
-const alertMessage = document.querySelector(".adminAlert div");
+const alert = document.querySelector("section.adminAlert");
+const alertMessage = document.querySelector("section.adminAlert div");
 
 const createParty = e => {
   e.preventDefault();
@@ -10,7 +10,6 @@ const createParty = e => {
   fetch("https://politiko.herokuapp.com/api/v1/parties", {
     method: "post",
     headers: {
-      'content-type': 'application/json',
       'x-access-token': localStorage.token
     },
     body: formData
@@ -20,11 +19,15 @@ const createParty = e => {
       if (data.status === 201) {
         alertMessage.textContent = "Party created.";
         alert.classList.remove("hidden");
-        setTimeout(alert.classList.add("hidden"), 2000);
+        setTimeout(() => {
+          alert.classList.add("hidden");
+        }, 2000);
       } else if (data.status === 500) {
         alertMessage.textContent = "Party name already exist."
         alert.classList.remove("hidden");
-        setTimeout(alert.classList.add("hidden"), 2000);
+        setTimeout(() => {
+          alert.classList.add("hidden");
+        }, 2000);
       }
     });
 };
