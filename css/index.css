@@ -564,6 +564,12 @@ footer {
   cursor: pointer;
 }
 
+.adminAlert {
+    padding: 0.5rem;
+    color: red;
+    font-weight: bold;
+}
+
 /* for tablet and desktop */
 @media only screen and (min-width: 767px) {
     
