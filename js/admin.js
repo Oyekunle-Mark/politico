@@ -115,3 +115,18 @@ const getAllParty = () => {
 }
 
 getAllParty();
+
+const deleteParty = (id, e) => {
+  fetch(`https://politiko.herokuapp.com/api/v1/parties/${id}`, {
+    method: "delete",  
+  headers: {
+      'x-access-token': localStorage.token
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 200) {
+        getAllParty();
+      }
+    })
+}
