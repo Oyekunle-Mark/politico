@@ -116,10 +116,10 @@ const getAllParty = () => {
 
 getAllParty();
 
-const deleteParty = (id, e) => {
+const deleteParty = id => {
   fetch(`https://politiko.herokuapp.com/api/v1/parties/${id}`, {
-    method: "delete",  
-  headers: {
+    method: "delete",
+    headers: {
       'x-access-token': localStorage.token
     }
   })
@@ -129,4 +129,45 @@ const deleteParty = (id, e) => {
         getAllParty();
       }
     })
+}
+
+const editParty = id => {
+  const editInput = document.querySelector('.editPartyForm div');
+  const cancelButton = document.querySelector('.cancelButton');
+  editInput.classList.remove('hidden');
+  cancelButton.addEventListener('click', () => {
+    editInput.classList.add('hidden');
+  });
+
+  const editButton = document.querySelector('.editButton');
+
+  editButton.addEventListener('click', () => {
+    const newName = document.querySelector('.edit').value;
+
+    fetch(`https://politiko.herokuapp.com/api/v1/parties/${id}/name`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': localStorage.token
+      },
+      body: JSON.stringify({
+        name: newName
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 202) {
+          location.reload();
+        } else if (data.status === 500) {
+          const editInfo = document.querySelector('.editInfo');
+          editInfo.textContent = 'Party name already exits';
+          editInfo.classList.remove('hidden');
+        } else if (data.status === 400) {
+          const editInfo = document.querySelector('.editInfo');
+          editInfo.textContent = 'Party name must be 3 characters or more';
+          editInfo.classList.remove('hidden');
+        }
+      });
+  })
+
 }
