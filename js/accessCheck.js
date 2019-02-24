@@ -1,3 +1,5 @@
+// checks if the token is still valid
+
 const redirect = url => {
   location.href = url;
 };

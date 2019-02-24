@@ -1,3 +1,5 @@
+// checks if the user is an admin
+
 const redirect = url => {
   location.href = url;
 };

@@ -39,6 +39,7 @@ const createOffice = e => {
 
   const form = document.querySelector(".createOfficeForm");
 
+  // get the select element text content
   const fn = document.getElementById("officeName");
   const officeName = fn.options[fn.selectedIndex].text;
   const t = document.getElementById("officeType");
@@ -87,6 +88,7 @@ const getAllParty = () => {
     .then(response => response.json())
     .then(data => {
       if (data.status === 200) {
+        // set the table header
         table.innerHTML = '<tr><th>ID</th><th>Party Name</th><th>Logo</th><th></th><th></th></tr>';
 
         data.data.forEach(party => {
