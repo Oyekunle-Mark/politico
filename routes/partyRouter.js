@@ -2,6 +2,7 @@ import express from 'express';
 import trim from 'trim-request';
 import swaggerUi from 'swagger-ui-express';
 
+// the swagger document
 import swaggerDocument from '../swagger.json';
 
 import partyMiddleware from '../middlewares/partyMiddleware';
@@ -16,7 +17,7 @@ import deletePartyQuery from '../model/partyQueries/deleteParty';
 
 const partyRouter = express.Router();
 
-// the swagger api documentation
+// set up the swagger api documentation
 partyRouter.use('/', swaggerUi.serve);
 partyRouter.get('/', swaggerUi.setup(swaggerDocument));
 

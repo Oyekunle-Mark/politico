@@ -1,3 +1,5 @@
+// this file sets up cloudinary, multer and uses the multer-storage-cloudinary
+
 import multer from 'multer';
 import cloudinary from 'cloudinary';
 import cloudinaryStorage from 'multer-storage-cloudinary';
