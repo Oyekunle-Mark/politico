@@ -64,20 +64,26 @@
   <section>
     <article>
       <h3>Registered Parties</h3>
+      <label class="filter">
+        Filter by ID:
+        <input type="number" class="partyId" />
+        <button class="getPartyButton">Get party</button>
+      </label>
+
       <div class="editPartyForm"><div class="hidden"><input class="edit" placeholder="Enter new name." type="text" autofocus required /><button type="submit" class="editButton">Change</button><button class="editButton cancelButton">Cancel</button></div></div>
       <div class="editInfo hidden"></div>
-      
+
       <table>
       </table>
 
-      <div class="pagination">
+      <!-- <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
         <a href="#">&raquo;</a>
-      </div>
+      </div> -->
     </article>
   </section>
 
