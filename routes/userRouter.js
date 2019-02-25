@@ -10,6 +10,7 @@ import loginUserQuery from '../model/userQueries/loginUser';
 import candidateQuery from '../model/userQueries/createCandidate';
 import voteQuery from '../model/userQueries/createVote';
 import viewResultQuery from '../model/userQueries/viewResults';
+import getAllUsers from '../model/userQueries/getAllUsers';
 
 const userRouter = express.Router();
 
@@ -18,5 +19,6 @@ userRouter.post('/auth/login', trim.body, userMiddleware.loginUserCheck, loginUs
 userRouter.post('/office/:id/register', trim.body, tokenAuth.tokenCheck, userMiddleware.candidateCheck, candidateQuery);
 userRouter.post('/votes/', trim.body, tokenAuth.tokenCheck, userMiddleware.voteCheck, voteQuery);
 userRouter.post('/office/:id/result', tokenAuth.tokenCheck, viewResultQuery);
+userRouter.get('/auth/users', tokenAuth.tokenCheck, getAllUsers.getAllUsers);
 
 export default userRouter;
