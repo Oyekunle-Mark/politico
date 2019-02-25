@@ -348,12 +348,25 @@ label.filter {
 	font-weight: bold;
 }
 
-label.filter select {
-	height: 1.5rem;
+label.filter input {
+    height: 1.3rem;
+    width: 3rem;
 	margin-bottom: 3rem;
 	margin-left: 1rem;
 	border: 1px solid #1F4121;
 	border-radius: 0.3rem;
+}
+
+label.filter button {
+    height: 1.5rem;
+    width: 6rem;
+	margin-bottom: 3rem;
+	margin-left: 1rem;
+	border: 1px solid #1F4121;
+    border-radius: 0.3rem;
+    background: black;
+    color: white;
+    cursor: pointer;
 }
 
 table {
