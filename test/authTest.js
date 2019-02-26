@@ -51,3 +51,19 @@ describe('GET /auth/users', () => {
       });
   });
 });
+
+describe('GET /candidates', () => {
+  it('respond with a 404', (done) => {
+    request(app)
+      .get('/api/v1/candidates')
+      .set('Accept', 'application/json')
+      .set('x-access-token', TOKEN)
+      .expect('Content-Type', /json/)
+      .expect(404)
+      .end((err, res) => {
+        expect(res.body).to.be.a('object');
+        expect(res.body).to.have.property('message');
+        done(err);
+      });
+  });
+});
