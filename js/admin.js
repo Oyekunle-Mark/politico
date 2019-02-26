@@ -1,4 +1,3 @@
-const alert = document.querySelector("section.adminAlert");
 const alertMessage = document.querySelector("section.adminAlert div");
 
 const createParty = e => {
@@ -36,8 +35,6 @@ document.querySelector(".createPartyForm").addEventListener('submit', createPart
 
 const createOffice = e => {
   e.preventDefault();
-
-  const form = document.querySelector(".createOfficeForm");
 
   // get the select element text content
   const fn = document.getElementById("officeName");

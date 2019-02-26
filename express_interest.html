@@ -10,6 +10,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Pathway+Gothic+One" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
+  <!-- <script type="text/javascript" src="js/adminAccessCheck.js"></script> -->
 </head>
 
 <body>
@@ -36,35 +37,28 @@
 
   <main class="register">
     <h3>Register to run for an office</h3>
-    <form>
-      <select>
-        <option selected disabled>Choose office type</option>
-        <option>Federal</option>
-        <option>Legislative</option>
-        <option>State</option>
-        <option>Local</option>
+    <form method="POST">
+      <select class="officeOptions">
+        <option selected disabled>Choose office</option>
       </select>
-      <select>
-        <option selected disabled>Choose office name</option>
-        <option>Presidential</option>
-        <option>Governorship</option>
-        <option>House of assembly</option>
-        <option>House of representative</option>
-      </select>
-      <select>
+      <select class="partyOptions">
         <option selected disabled>Choose party</option>
-        <option>PDP</option>
-        <option>ACN</option>
-        <option>ANPP</option>
+      </select>
+      <select class="userOptions">
+        <option selected disabled>Choose users</option>
       </select>
       <button type="submit">Register</button>
     </form>
   </main>
 
+  <section class="adminAlert"><div class="hidden">hi</div></section>
+
   <footer>
     <p>&copy; 2019 Politico</p>
     <p>All rights reserved</p>
   </footer>
+
+  <script type="text/javascript" src="js/candidate.js"></script>
 </body>
 
 </html>
