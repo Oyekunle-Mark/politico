@@ -75,17 +75,13 @@ const populateCandidateList = async () => {
         });
       });
     });
-
-  console.log(candidateList);
 }
 
 populateCandidateList();
 
 const createBallot = (officeId) => {
-  console.log('create ballot called with', officeId);
   table.innerHTML = `<tr><th>ID</th><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
   candidateList.forEach(candidate => {
-    console.log('hello')
     if (candidate.office == officeId) {
       const row = document.createElement('tr');
       const candidateId = document.createElement('td');
@@ -109,11 +105,9 @@ const createBallot = (officeId) => {
       table.appendChild(row);
     }
   })
-  console.log('after rendering');
 }
 
 const voteCandidate = (idOffice, idCandidate) => {
-  console.log('vote candidate called')
   const alertMessage = document.querySelector("section.adminAlert div");
 
   fetch('https://politiko.herokuapp.com/api/v1/votes/', {
@@ -147,7 +141,6 @@ const voteCandidate = (idOffice, idCandidate) => {
 
 const officeOption = () => {
   const officeId = selectOffice.options[selectOffice.selectedIndex].value;
-  console.log('officeOption called with ', officeId);
   createBallot(officeId);
 }
 
