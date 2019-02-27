@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Politico</title>
+  <title>Sign-in to Politico</title>
 
   <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Pathway+Gothic+One" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
@@ -23,7 +23,7 @@
         <a href="express_interest.html">Express Interst</a>
         <a href="office.html">Political Offices</a>
         <a href="view_result.html">View Result</a>
-        <a href="vote.html">Cast Vote</a>
+        <a href="view_result.html">Cast Vote</a>
       </div>
     </div>
     <nav>
@@ -35,39 +35,33 @@
     </nav>
   </header>
 
-  <section>
-    <article>
+  <main class="electionResults">
 
-      <h3 class="partyTable">Registered political parties</h3>
+    <h3>Cast vote</h3>
 
-      <label class="filter">
-        Filter by ID:
-        <input type="number" class="partyId" />
-        <button class="getPartyButton">Get party</button>
-      </label>
-      <div class="editInfo hidden"></div>
+    <section class="adminAlert">
+      <div class="hidden"></div>
+    </section>
 
-      <table>
-      </table>
+    <label class="filter">
+      View by office type:
+      <select class="voteOfficeOption">
+        <option selected disabled>Choose office</option>
+      </select>
+    </label>
 
-      <!-- <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">&raquo;</a>
-      </div> -->
+    <table>
+    </table>
 
-    </article>
-  </section>
+  </main>
 
   <footer>
     <p>&copy; 2019 Politico</p>
     <p>All rights reserved</p>
   </footer>
 
-  <script type="text/javascript" src="js/userHome.js"></script>
+  <script type="text/javascript" src="js/vote.js"></script>
+
 </body>
 
 </html>
