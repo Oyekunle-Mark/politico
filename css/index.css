@@ -345,7 +345,8 @@ section article .caption {
 
 label.filter {
 	font-family: 'Dosis', sans-serif;
-	font-weight: bold;
+    font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 label.filter input {
@@ -367,6 +368,15 @@ label.filter button {
     background: black;
     color: white;
     cursor: pointer;
+}
+
+label.filter select {
+    margin-left: 1rem;
+    width: 10rem;
+    height: 1.5rem;
+    border: 1px solid black;
+    font-weight: bold;
+    border-radius: 0.3rem;
 }
 
 table {
@@ -603,6 +613,22 @@ footer {
 
 .editInfo {
     color: red;
+}
+
+.voteButton {
+    width: 8rem;
+    height: 2rem;
+    margin-top: 1rem;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    background: black;
+}
+
+.voteButton:hover {
+    cursor: pointer;
 }
 
 /* for tablet and desktop */
