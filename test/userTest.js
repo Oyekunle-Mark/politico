@@ -131,7 +131,7 @@ describe('POST /office/<office-id>/result ', () => {
       .set('Accept', 'application/json')
       .set('x-access-token', TOKEN)
       .expect('Content-Type', /json/)
-      .expect(200)
+      .expect(404)
       .end((err, res) => {
         expect(res.body).to.be.a('object');
         done(err);
