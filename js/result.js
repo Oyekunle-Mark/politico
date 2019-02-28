@@ -67,15 +67,43 @@ const populateVoteList = async () => {
       data.data.forEach(user => {
         voteList.forEach(vote => {
           if (vote.candidate === user.id) {
-            vote.candidateName = `${user.firstname} ${user.lastname}`;
+            vote.candidate = `${user.firstname} ${user.lastname}`;
             vote.passport = user.passporturl;
           }
         });
       });
     });
-
-
-  console.log(voteList);
 }
 
 populateVoteList();
+
+const createResultList = (officeId) => {
+
+}
+
+const officeOptionChange = async () => {
+  table.innerHTML = '<h3>Loading result...</h3>';
+  const officeId = selectOffice.options[selectOffice.selectedIndex].value;
+  
+  await fetch(`https://politiko.herokuapp.com/api/v1/office/${officeId}/result`, {
+    method: "post",
+    headers: {
+      'x-access-token': localStorage.token
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      data.data.forEach(result => {
+        voteList.forEach(vote => {
+          if (vote.id === result.candidate) {
+            vote.result = result.count;
+          }
+        });
+      });
+    });
+
+    console.log(voteList);
+    createResultList(officeId);
+}
+
+selectOffice.addEventListener('change', officeOptionChange);
