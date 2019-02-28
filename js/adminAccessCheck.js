@@ -15,6 +15,7 @@ const adminAccessCheck = e => {
   })
     .then(res => res.json())
     .then(async data => {
+
       if (data.status === 401 || data.status === 400) {
         redirect('https://oyekunle-mark.github.io/politico/sign_in.html');
       } else if (data.data.isadmin === false) {

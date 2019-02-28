@@ -523,7 +523,7 @@ footer {
 .dropdown {
 	display: inline-block;
 	position: absolute;
-	right: 12%;
+	right: 3%;
 	padding: 1.7rem;
 	padding-right: 1rem;
 	width: 8rem;
@@ -552,6 +552,10 @@ footer {
 	font-weight: bold;
 	padding: 0.5rem;
 	text-decoration: none;
+}
+
+.dropdownPrimary span {
+    font-size: 0.8rem;
 }
 
 .dropdown:active, .dropdown:hover .dropdownSecondary {
@@ -636,7 +640,7 @@ footer {
     
     .sign-up .form {
         max-width: 55rem;
-        width: 50%;
+        width: 40%;
         margin: 0 auto;
         padding: 4rem;
         margin-bottom: 5rem;
