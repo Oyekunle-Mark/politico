@@ -78,7 +78,36 @@ const populateVoteList = async () => {
 populateVoteList();
 
 const createResultList = (officeId) => {
+  table.innerHTML = `<tr><th>ID</th><th>Office</th><th>Candidate</th><th>Candidate's Photo</th><th>Vote Count</th></tr>`;
+  let i = 0;
 
+  voteList.forEach(vote => {
+    if (vote.office == officeId) {
+      const row = document.createElement('tr');
+      const id = document.createElement('td');
+      const office = document.createElement('td');
+      const candidate = document.createElement('td');
+      const candidatePhoto = document.createElement('td');
+      const voteCount = document.createElement('td');
+      id.innerHTML = vote.id;
+      office.innerHTML = vote.officeName;
+      candidate.innerHTML = vote.candidate;
+      candidatePhoto.innerHTML = `<img src=${vote.passport} alt="candidate_passport" width="50px" height="50px">`;
+      voteCount.innerHTML = vote.result;
+      row.appendChild(id);
+      row.appendChild(office);
+      row.appendChild(candidate);
+      row.appendChild(candidatePhoto);
+      row.appendChild(voteCount);
+      table.appendChild(row);
+
+      i++;
+    }
+  });
+
+  if (i === 0) {
+    table.innerHTML = '<h3>There has been no votes for a candidate running for this office.</h3>';
+  }
 }
 
 const officeOptionChange = async () => {
@@ -93,16 +122,17 @@ const officeOptionChange = async () => {
   })
     .then(response => response.json())
     .then(data => {
-      data.data.forEach(result => {
-        voteList.forEach(vote => {
-          if (vote.id === result.candidate) {
-            vote.result = result.count;
-          }
+      if (data.status === 200) {
+        data.data.forEach(result => {
+          voteList.forEach(vote => {
+            if (vote.id === result.candidate) {
+              vote.result = result.count;
+            }
+          });
         });
-      });
+      }
     });
-
-    console.log(voteList);
+    
     createResultList(officeId);
 }
 

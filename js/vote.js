@@ -105,9 +105,10 @@ const createBallot = (officeId) => {
       row.appendChild(partyLogo);
       row.appendChild(voteButton);
       table.appendChild(row);
+
       i++;
     }
-  })
+  });
 
   if (i === 0) {
     table.innerHTML = '<h3>No candidate is registered for this office.';
