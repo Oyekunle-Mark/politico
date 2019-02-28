@@ -37,13 +37,14 @@
   <main class="electionResults">
     <h3>Election results</h3>
 
+    <section class="adminAlert">
+      <div class="hidden"></div>
+    </section>
+
     <label class="filter">
       Election results by office type:
-      <select>
-        <option selected disabled>State</option>
-        <option>Federal</option>
-        <option>Legislative</option>
-        <option>Local</option>
+      <select class="viewResultOption">
+        <option selected disabled>Choose result</option>
       </select>
     </label>
 
@@ -92,6 +93,8 @@
     <p>&copy; 2019 Politico</p>
     <p>All rights reserved</p>
   </footer>
+
+  <script type="text/javascript" src="js/result.js"></script>
 </body>
 
 </html>
