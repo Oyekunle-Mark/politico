@@ -538,7 +538,7 @@ footer {
 }
 
 .dropdownSecondary {
-	display: none;
+	/* display: none; */
 	background: #DBE6DF;
 	z-index: 5;
 	border-radius: 0.2rem;
@@ -558,13 +558,13 @@ footer {
     font-size: 0.8rem;
 }
 
-.dropdown:active, .dropdown:hover .dropdownSecondary {
+/* .dropdown:active, .dropdown:hover .dropdownSecondary {
 	display: block;
 }
 
 .dropdown:active, .dropdownSecondary:hover {
 	display: block;
-}
+} */
 
 .hidden {
   display: none;
