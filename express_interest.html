@@ -15,28 +15,18 @@
 
 <body>
   <header>
-    <h1><a href="user_home.html">Politico</a></h1>
+   <h1><a href="admin.html">Politico</a></h1>
 
-
-    <div class="dropdown">
-      <a href="user_home.html" class="dropdownPrimary">Menu &#9660;</a>
-      <div class="dropdownSecondary">
-        <a href="express_interest.html">Express Interst</a>
-        <a href="office.html">Political Offices</a>
-        <a href="view_result.html">View Result</a>
-      </div>
-    </div>
     <nav>
       <ul>
-        <li></li>
-        <li><a href="user_profile.html">Profile</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="express_interest.html">Register Candidate</a></li>
+        <li><a class="logout" href="index.html">Logout</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="register">
-    <h3>Register to run for an office</h3>
+    <h3>Register a user to run for an office</h3>
     <form method="POST">
       <select class="officeOptions">
         <option selected disabled>Choose office</option>
@@ -59,6 +49,7 @@
   </footer>
 
   <script type="text/javascript" src="js/candidate.js"></script>
+  <script type="text/javascript" src="js/logout.js"></script>
 </body>
 
 </html>

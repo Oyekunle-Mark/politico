@@ -10,34 +10,33 @@
 
   <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Pathway+Gothic+One" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
+  <!-- <script type="text/javascript" src="js/accessCheck.js"></script> -->
 </head>
 
 <body>
   <header>
     <h1><a href="user_home.html">Politico</a></h1>
 
-
     <div class="dropdown">
-      <a href="user_home.html" class="dropdownPrimary">Menu &#9660;</a>
-      <div class="dropdownSecondary">
-        <a href="express_interest.html">Express Interst</a>
+      <a href="#" class="dropdownPrimary">Menu <span>&#9660;</span></a>
+      <div class="dropdownSecondary hidden">
+        <a href="user_home.html">Parties</a>
         <a href="office.html">Political Offices</a>
+        <a href="vote.html">Cast Vote</a>
         <a href="view_result.html">View Result</a>
       </div>
     </div>
     <nav>
       <ul>
-        <li></li>
-        <li><a href="user_profile.html">Profile</a></li>
-        <li><a href="index.html">Logout</a></li>
+        <li><a class="logout" href="index.html">Logout</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="profile">
-    <h3>Davinson Chukwu</h3>
-    <p>Male</p>
-    <p>davis_chukwu@gmail.com</p>
+    <h3 class="username">Davinson Chukwu</h3>
+    <p class="phoneNumber">Male</p>
+    <p class="emailAddress">davis_chukwu@gmail.com</p>
 
     <h4>Cast Votes</h4>
     <table>
@@ -64,6 +63,9 @@
     <p>&copy; 2019 Politico</p>
     <p>All rights reserved</p>
   </footer>
+
+  <script type="text/javascript" src="js/dropdown.js"></script>
+  <script type="text/javascript" src="js/logout.js"></script>
 </body>
 
 </html>

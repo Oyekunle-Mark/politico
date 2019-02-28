@@ -19,12 +19,15 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Logout</a></li>
+        <li><a href="express_interest.html">Register Candidate</a></li>
+        <li><a class="logout" href="index.html">Logout</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="adminAlert"><div class="hidden">hi</div></section>
+  <section class="adminAlert">
+    <div class="hidden">hi</div>
+  </section>
   <section>
     <article>
       <form class="createPartyForm" method="post">
@@ -70,20 +73,16 @@
         <button class="getPartyButton">Get party</button>
       </label>
 
-      <div class="editPartyForm"><div class="hidden"><input class="edit" placeholder="Enter new name." type="text" autofocus required /><button type="submit" class="editButton">Change</button><button class="editButton cancelButton">Cancel</button></div></div>
+      <div class="editPartyForm">
+        <div class="hidden"><input class="edit" placeholder="Enter new name." type="text" autofocus required /><button
+            type="submit" class="editButton">Change</button><button class="editButton cancelButton">Cancel</button>
+        </div>
+      </div>
       <div class="editInfo hidden"></div>
 
       <table>
       </table>
 
-      <!-- <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">&raquo;</a>
-      </div> -->
     </article>
   </section>
 
@@ -93,6 +92,7 @@
   </footer>
 
   <script type="text/javascript" src="js/admin.js"></script>
+  <script type="text/javascript" src="js/logout.js"></script>
 </body>
 
 </html>
