@@ -2,7 +2,7 @@ const candidateList = [];
 
 const selectOffice = document.querySelector('.voteOfficeOption');
 const table = document.querySelector('table');
-table.innerHTML = '<h3>Choose the office your wish to vote for</h3>';
+table.innerHTML = '<h3>Choose the office you wish to vote for</h3>';
 
 const getFilterOption = () => {
   fetch('https://politiko.herokuapp.com/api/v1/offices', {
@@ -39,7 +39,7 @@ const populateCandidateList = async () => {
         candidateList[i].office = candidate.office;
         candidateList[i].user = candidate.candidate;
         i++;
-      })
+      });
     });
 
   await fetch('https://politiko.herokuapp.com/api/v1/parties/', {
@@ -105,9 +105,10 @@ const createBallot = (officeId) => {
       row.appendChild(partyLogo);
       row.appendChild(voteButton);
       table.appendChild(row);
+
       i++;
     }
-  })
+  });
 
   if (i === 0) {
     table.innerHTML = '<h3>No candidate is registered for this office.';
