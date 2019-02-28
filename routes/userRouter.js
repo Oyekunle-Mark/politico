@@ -12,6 +12,7 @@ import voteQuery from '../model/userQueries/createVote';
 import viewResultQuery from '../model/userQueries/viewResults';
 import getAllUsers from '../model/userQueries/getAllUsers';
 import getAllCandidates from '../model/userQueries/getAllCandidates';
+import getSpecificVoter from '../model/userQueries/getSpecificVoter';
 
 const userRouter = express.Router();
 
@@ -22,5 +23,6 @@ userRouter.post('/votes/', trim.body, tokenAuth.tokenCheck, userMiddleware.voteC
 userRouter.post('/office/:id/result', tokenAuth.tokenCheck, viewResultQuery);
 userRouter.get('/auth/users', tokenAuth.tokenCheck, getAllUsers.getAllUsers);
 userRouter.get('/candidates', tokenAuth.tokenCheck, getAllCandidates.getAllCandidates);
+userRouter.get('/votes/:id', tokenAuth.tokenCheck, getSpecificVoter.getVoter);
 
 export default userRouter;
