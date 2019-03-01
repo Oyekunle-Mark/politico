@@ -31,14 +31,16 @@ const populateVoteList = async () => {
   })
     .then(response => response.json())
     .then(data => {
-      let i = 0;
-      data.data.forEach(candidate => {
-        voteList[i] = {};
-        voteList[i].id = candidate.id;
-        voteList[i].candidate = candidate.candidate;
-        voteList[i].office = candidate.office;
-        i++;
-      });
+      if (data.status === 200) {
+        let i = 0;
+        data.data.forEach(candidate => {
+          voteList[i] = {};
+          voteList[i].id = candidate.id;
+          voteList[i].candidate = candidate.candidate;
+          voteList[i].office = candidate.office;
+          i++;
+        });
+      }
     });
 
   await fetch('https://politiko.herokuapp.com/api/v1/offices', {
@@ -78,33 +80,27 @@ const populateVoteList = async () => {
 populateVoteList();
 
 const createResultList = (officeId) => {
-  table.innerHTML = `<tr><th>Office</th><th>Candidate</th><th>Candidate's Photo</th><th>Vote Count</th></tr>`;
-  let i = 0;
+  table.innerHTML = `<tr><th>Office</th><th>Candidate</th><th>Vote Count</th></tr>`;
 
   voteList.forEach(vote => {
     if (vote.office == officeId) {
       const row = document.createElement('tr');
       const office = document.createElement('td');
       const candidate = document.createElement('td');
-      const candidatePhoto = document.createElement('td');
       const voteCount = document.createElement('td');
       office.innerHTML = vote.officeName;
       candidate.innerHTML = vote.candidate;
-      candidatePhoto.innerHTML = `<img src=${vote.passport} alt="c_p" width="30px" height="30px">`;
       voteCount.innerHTML = vote.result;
       row.appendChild(office);
       row.appendChild(candidate);
-      row.appendChild(candidatePhoto);
       row.appendChild(voteCount);
       table.appendChild(row);
+    }
 
-      i++;
+    if (voteList.length === 0 || voteList.length === undefined) {
+      table.innerHTML = '<h3>No candidate registered for this office.</h3>';
     }
   });
-
-  if (i === 0) {
-    table.innerHTML = '<h3>There has been no votes for a candidate running for this office.</h3>';
-  }
 }
 
 const officeOptionChange = async () => {
@@ -124,6 +120,14 @@ const officeOptionChange = async () => {
           voteList.forEach(vote => {
             if (vote.id === result.candidate) {
               vote.result = result.count;
+            }
+          });
+        });
+      } else {
+        data.data.forEach(result => {
+          voteList.forEach(vote => {
+            if (vote.id === result.candidate) {
+              vote.result = 0;
             }
           });
         });

@@ -31,15 +31,17 @@ const populateCandidateList = async () => {
   })
     .then(response => response.json())
     .then(data => {
-      let i = 0;
-      data.data.forEach(candidate => {
-        candidateList[i] = {};
-        candidateList[i].id = candidate.id;
-        candidateList[i].party = candidate.party;
-        candidateList[i].office = candidate.office;
-        candidateList[i].user = candidate.candidate;
-        i++;
-      });
+      if (data.status === 200) {
+        let i = 0;
+        data.data.forEach(candidate => {
+          candidateList[i] = {};
+          candidateList[i].id = candidate.id;
+          candidateList[i].party = candidate.party;
+          candidateList[i].office = candidate.office;
+          candidateList[i].user = candidate.candidate;
+          i++;
+        });
+      }
     });
 
   await fetch('https://politiko.herokuapp.com/api/v1/parties/', {
@@ -81,7 +83,6 @@ populateCandidateList();
 
 const createBallot = (officeId) => {
   table.innerHTML = `<tr><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
-  let i = 0;
 
   candidateList.forEach(candidate => {
     if (candidate.office == officeId) {
@@ -102,14 +103,12 @@ const createBallot = (officeId) => {
       row.appendChild(partyLogo);
       row.appendChild(voteButton);
       table.appendChild(row);
+    }
 
-      i++;
+    if (candidateList.length === 0 || candidateList.length === undefined) {
+      table.innerHTML = '<h3>No candidates for the selected office.</h3>';
     }
   });
-
-  if (i === 0) {
-    table.innerHTML = '<h3>No candidate is registered for this office.';
-  }
 }
 
 const voteCandidate = (idOffice, idCandidate) => {

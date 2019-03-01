@@ -53,14 +53,16 @@ const populateCastVote = async () => {
   })
     .then(response => response.json())
     .then(data => {
-      let i = 0;
-      data.data.forEach(vote => {
-        castVote[i] = {};
-        castVote[i].createdOn = vote.createdon;
-        castVote[i].office = vote.office;
-        castVote[i].candidate = vote.candidate;
-        i++;
-      });
+      if (data.status === 200) {
+        let i = 0;
+        data.data.forEach(vote => {
+          castVote[i] = {};
+          castVote[i].createdOn = vote.createdon;
+          castVote[i].office = vote.office;
+          castVote[i].candidate = vote.candidate;
+          i++;
+        });
+      }
     });
 
   await fetch('https://politiko.herokuapp.com/api/v1/offices', {
@@ -112,26 +114,23 @@ const populateCastVote = async () => {
       });
     });
 
-  table.innerHTML = `<tr><th>Office</th><th>Candidate</th><th>Photograph</th><th>Date Voted</th></tr>`;
+  table.innerHTML = `<tr><th>Office</th><th>Candidate</th><th>Date Voted</th></tr>`;
 
   castVote.forEach(vote => {
     const row = document.createElement('tr');
     const office = document.createElement('td');
     const candidate = document.createElement('td');
-    const photo = document.createElement('td');
     const createdOn = document.createElement('td');
     office.innerHTML = vote.office;
     candidate.innerHTML = vote.candidate;
-    photo.innerHTML = `<img src=${vote.passport} alt="c_p" width="30px" height="30px">`;
     createdOn.innerHTML = vote.createdOn.slice(0, 10);
     row.appendChild(office);
     row.appendChild(candidate);
-    row.appendChild(photo);
     row.appendChild(createdOn);
     table.appendChild(row);
   });
 
-  if (castVote.length === 0) {
+  if (castVote.length === 0 || castVote.length === undefined) {
     table.innerHTML = '<h3>You are yet to vote.</h3>';
   }
 }
