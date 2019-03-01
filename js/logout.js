@@ -7,4 +7,4 @@ const logout = e => {
   location.href = 'https://oyekunle-mark.github.io/politico/sign_in.html';
 }
 
-logoutLink.addEventListener('click',logout);
+logoutLink.addEventListener('click', logout);

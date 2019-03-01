@@ -78,23 +78,20 @@ const populateVoteList = async () => {
 populateVoteList();
 
 const createResultList = (officeId) => {
-  table.innerHTML = `<tr><th>ID</th><th>Office</th><th>Candidate</th><th>Candidate's Photo</th><th>Vote Count</th></tr>`;
+  table.innerHTML = `<tr><th>Office</th><th>Candidate</th><th>Candidate's Photo</th><th>Vote Count</th></tr>`;
   let i = 0;
 
   voteList.forEach(vote => {
     if (vote.office == officeId) {
       const row = document.createElement('tr');
-      const id = document.createElement('td');
       const office = document.createElement('td');
       const candidate = document.createElement('td');
       const candidatePhoto = document.createElement('td');
       const voteCount = document.createElement('td');
-      id.innerHTML = vote.id;
       office.innerHTML = vote.officeName;
       candidate.innerHTML = vote.candidate;
-      candidatePhoto.innerHTML = `<img src=${vote.passport} alt="candidate_passport" width="50px" height="50px">`;
+      candidatePhoto.innerHTML = `<img src=${vote.passport} alt="c_p" width="30px" height="30px">`;
       voteCount.innerHTML = vote.result;
-      row.appendChild(id);
       row.appendChild(office);
       row.appendChild(candidate);
       row.appendChild(candidatePhoto);
@@ -113,7 +110,7 @@ const createResultList = (officeId) => {
 const officeOptionChange = async () => {
   table.innerHTML = '<h3>Loading result...</h3>';
   const officeId = selectOffice.options[selectOffice.selectedIndex].value;
-  
+
   await fetch(`https://politiko.herokuapp.com/api/v1/office/${officeId}/result`, {
     method: "post",
     headers: {
@@ -132,8 +129,8 @@ const officeOptionChange = async () => {
         });
       }
     });
-    
-    createResultList(officeId);
+
+  createResultList(officeId);
 }
 
 selectOffice.addEventListener('change', officeOptionChange);

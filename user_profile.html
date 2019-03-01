@@ -8,9 +8,15 @@
 
   <title>Politico</title>
 
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
   <link href="https://fonts.googleapis.com/css?family=Dosis|Open+Sans|Pathway+Gothic+One" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
-  <!-- <script type="text/javascript" src="js/accessCheck.js"></script> -->
+  
+  <script type="text/javascript" src="js/accessCheck.js"></script>
 </head>
 
 <body>
@@ -24,6 +30,7 @@
         <a href="office.html">Political Offices</a>
         <a href="vote.html">Cast Vote</a>
         <a href="view_result.html">View Result</a>
+        <a href="user_profile.html">Profile</a>
       </div>
     </div>
     <nav>
@@ -34,29 +41,17 @@
   </header>
 
   <main class="profile">
-    <h3 class="username">Davinson Chukwu</h3>
-    <p class="phoneNumber">Male</p>
-    <p class="emailAddress">davis_chukwu@gmail.com</p>
+    <div class="profilePicture"></div>
+
+    <h3 class="username">Loading...</h3>
+    <p class="phoneNumber"></p>
+    <p class="emailAddress"></p>
 
     <h4>Cast Votes</h4>
+
     <table>
-      <tr>
-        <th>Office type</th>
-        <th>Candidate</th>
-      </tr>
-      <tr>
-        <td>Presidency</td>
-        <td>Harry Potter</td>
-      </tr>
-      <tr>
-        <td>House of Assembly</td>
-        <td>Hermione Granger</td>
-      </tr>
-      <tr>
-        <td>Governorship</td>
-        <td>Tyrion Lannister</td>
-      </tr>
     </table>
+
   </main>
 
   <footer>
@@ -64,8 +59,10 @@
     <p>All rights reserved</p>
   </footer>
 
+  <script type="text/javascript" src="js/profile.js"></script>
   <script type="text/javascript" src="js/dropdown.js"></script>
   <script type="text/javascript" src="js/logout.js"></script>
+
 </body>
 
 </html>
