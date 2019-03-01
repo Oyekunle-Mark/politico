@@ -122,7 +122,7 @@ const populateCastVote = async () => {
     const createdOn = document.createElement('td');
     office.innerHTML = vote.office;
     candidate.innerHTML = vote.candidate;
-    photo.innerHTML = `<img src=${vote.passport} alt="candidate_passport" width="50px" height="50px">`;
+    photo.innerHTML = `<img src=${vote.passport} alt="c_p" width="30px" height="30px">`;
     createdOn.innerHTML = vote.createdOn.slice(0, 10);
     row.appendChild(office);
     row.appendChild(candidate);

@@ -80,25 +80,22 @@ const populateCandidateList = async () => {
 populateCandidateList();
 
 const createBallot = (officeId) => {
-  table.innerHTML = `<tr><th>ID</th><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
+  table.innerHTML = `<tr><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
   let i = 0;
-  
+
   candidateList.forEach(candidate => {
     if (candidate.office == officeId) {
       const row = document.createElement('tr');
-      const candidateId = document.createElement('td');
       const candidateName = document.createElement('td');
       const candidatePhoto = document.createElement('td');
       const partyName = document.createElement('td');
       const partyLogo = document.createElement('td');
       const voteButton = document.createElement('td');
-      candidateId.innerHTML = candidate.id;
       candidateName.innerHTML = candidate.name;
-      candidatePhoto.innerHTML = `<img src=${candidate.passport} alt="candidate_passport" width="50px" height="50px">`;
+      candidatePhoto.innerHTML = `<img src=${candidate.passport} alt="c_p" width="30px" height="30px">`;
       partyName.innerHTML = candidate.party;
-      partyLogo.innerHTML = `<img src=${candidate.logo} alt="party_logo" width="50px" height="50px">`;
-      voteButton.innerHTML = `<button class="voteButton" onclick=voteCandidate(${candidate.office},${candidate.id})>Vote</button>`;
-      row.appendChild(candidateId);
+      partyLogo.innerHTML = `<img src=${candidate.logo} alt="party_logo" width="30px" height="30px">`;
+      voteButton.innerHTML = `<button class="voteButton" style="width:3rem;" onclick=voteCandidate(${candidate.office},${candidate.id})>Vote</button>`;
       row.appendChild(candidateName);
       row.appendChild(candidatePhoto);
       row.appendChild(partyName);
