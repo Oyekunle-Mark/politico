@@ -2,13 +2,6 @@ import db from '../db/db';
 
 class GetAllUsers {
   static getAllUsers(req, res) {
-    if (req.user.isadmin === false) {
-      return res.status(403).json({
-        status: 403,
-        error: 'Only admins are authorized to view this page.',
-      });
-    }
-
     const text = 'SELECT * from users';
 
     db.query(text, (error, results) => {
