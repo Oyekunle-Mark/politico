@@ -201,7 +201,8 @@ div .forgotPassword a {
 
 .profile {
     color: #0F120D;
-	text-align: center;
+    text-align: center;
+    margin-bottom: 8rem;
 }
 
 .profile h3 {
@@ -223,7 +224,7 @@ div .forgotPassword a {
     margin-left: 1rem;
     margin-right: 1rem;
     width: 80%;
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 #resetLink {
@@ -633,6 +634,12 @@ footer {
 
 .voteButton:hover {
     cursor: pointer;
+}
+
+.profilePicture img {
+    margin-top: 1rem;
+    border: 2px solid black;
+    border-radius: 0.5rem;
 }
 
 /* for tablet and desktop */
