@@ -119,15 +119,7 @@ const officeOptionChange = async () => {
         data.data.forEach(result => {
           voteList.forEach(vote => {
             if (vote.id === result.candidate) {
-              vote.result = result.count;
-            }
-          });
-        });
-      } else {
-        data.data.forEach(result => {
-          voteList.forEach(vote => {
-            if (vote.id === result.candidate) {
-              vote.result = 0;
+              vote.result = result.count || undefined;
             }
           });
         });
