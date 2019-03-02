@@ -45,25 +45,19 @@ const getSpecificParty = () => {
     .then(response => response.json())
     .then(data => {
       if (data.status === 200) {
-        table.innerHTML = '<tr><th>ID</th><th>Party Name</th><th>Logo</th><th></th><th></th></tr>';
+        table.innerHTML = '<tr><th>ID</th><th>Party Name</th><th>Logo</th></tr>';
 
         data.data.forEach(party => {
           const row = document.createElement('tr');
           const partyId = document.createElement('td');
           const partyName = document.createElement('td');
           const partyLogo = document.createElement('td');
-          const editButton = document.createElement('td');
-          const deleteButton = document.createElement('td');
           partyId.innerHTML = party.id;
           partyName.innerHTML = party.name;
           partyLogo.innerHTML = `<img src=${party.logourl} alt="party_logo" width="50px" height="50px">`;
-          editButton.innerHTML = `<button onclick=editParty(${party.id})>Edit</button>`;
-          deleteButton.innerHTML = `<button onclick=deleteParty(${party.id})>Delete</button>`
           row.appendChild(partyId);
           row.appendChild(partyName);
           row.appendChild(partyLogo);
-          row.appendChild(editButton);
-          row.appendChild(deleteButton);
           table.appendChild(row);
         })
       } else if (data.status === 404) {
