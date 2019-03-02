@@ -90,14 +90,20 @@ const createResultList = (officeId) => {
       const voteCount = document.createElement('td');
       office.innerHTML = vote.officeName;
       candidate.innerHTML = vote.candidate;
-      voteCount.innerHTML = vote.result;
+      if (vote.result === undefined) {
+        voteCount.innerHTML = 0;
+      } else {
+        voteCount.innerHTML = vote.result;
+      }
       row.appendChild(office);
       row.appendChild(candidate);
       row.appendChild(voteCount);
-      table.appendChild(row);
+      table.appendChild(row); 
     }
 
-    if (voteList.length === 0 || voteList.length === undefined) {
+    let i = voteList.filter(vote => vote.office == officeId);
+
+    if (i.length === 0) {
       table.innerHTML = '<h3>No candidate registered for this office.</h3>';
     }
   });
@@ -119,7 +125,7 @@ const officeOptionChange = async () => {
         data.data.forEach(result => {
           voteList.forEach(vote => {
             if (vote.id === result.candidate) {
-              vote.result = result.count || undefined;
+              vote.result = result.count;
             }
           });
         });

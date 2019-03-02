@@ -83,7 +83,6 @@ populateCandidateList();
 
 const createBallot = (officeId) => {
   table.innerHTML = `<tr><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
-  let i = 0;
 
   candidateList.forEach(candidate => {
     if (candidate.office == officeId) {
@@ -104,12 +103,12 @@ const createBallot = (officeId) => {
       row.appendChild(partyLogo);
       row.appendChild(voteButton);
       table.appendChild(row);
-
-      i++;
     }
 
-    if (i === 0) {
-      table.innerHTML = '<h3>No candidates for the selected office.</h3>';
+    let i = candidateList.filter(candidate => candidate.office == officeId);
+
+    if (i.length === 0) {
+      table.innerHTML = '<h3>No candidate registered for this office.</h3>';
     }
   });
 }
