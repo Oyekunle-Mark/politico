@@ -62,6 +62,7 @@ This project makes use of a number a dependencies, they are:
 * swagger-ui-express
 * trim-request
 * morgan
+
 Find a full list of all dependencies and development dependencies in the package.json file.
 
 
