@@ -83,9 +83,9 @@ populateCandidateList();
 
 const createBallot = (officeId) => {
   table.innerHTML = `<tr><th>Candidate</th><th>Candidate's Photo</th><th>Party</th><th>Party Logo</th><th></th></tr>`;
+  let i = 0;
 
   candidateList.forEach(candidate => {
-    let i = 0;
     if (candidate.office == officeId) {
       const row = document.createElement('tr');
       const candidateName = document.createElement('td');
