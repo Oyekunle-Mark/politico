@@ -21,6 +21,27 @@ const createParty = e => {
         setTimeout(() => {
           alertMessage.classList.add("hidden");
         }, 2000);
+
+        const table = document.querySelector('table');
+        const party = data.data[0];
+
+        const row = document.createElement('tr');
+        const partyId = document.createElement('td');
+        const partyName = document.createElement('td');
+        const partyLogo = document.createElement('td');
+        const editButton = document.createElement('td');
+        const deleteButton = document.createElement('td');
+        partyId.innerHTML = party.id;
+        partyName.innerHTML = party.name;
+        partyLogo.innerHTML = `<img src=${party.logourl} alt="party_logo" width="50px" height="50px">`;
+        editButton.innerHTML = `<button onclick=editParty(${party.id})>Edit</button>`;
+        deleteButton.innerHTML = `<button onclick=deleteParty(${party.id})>Delete</button>`
+        row.appendChild(partyId);
+        row.appendChild(partyName);
+        row.appendChild(partyLogo);
+        row.appendChild(editButton);
+        row.appendChild(deleteButton);
+        table.appendChild(row);
       } else if (data.status === 500) {
         alertMessage.textContent = "Party name already exist."
         alertMessage.classList.remove("hidden");
