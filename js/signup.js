@@ -35,6 +35,9 @@ const signUp = e => {
           1000,
           "https://oyekunle-mark.github.io/politico/user_home.html"
         );
+      } else if (data.status === 400) {
+        alertMessage.textContent = `${data.error}`;
+        alert.classList.remove("hidden");
       } else if (data.status === 500) {
         alertMessage.textContent = "Email or phone number already exist";
         alert.classList.remove("hidden");
