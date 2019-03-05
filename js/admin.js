@@ -42,6 +42,12 @@ const createParty = e => {
         row.appendChild(editButton);
         row.appendChild(deleteButton);
         table.appendChild(row);
+      } else if (data.status === 400) {
+        alertMessage.textContent = `${data.error}`;
+        alertMessage.classList.remove("hidden");
+        setTimeout(() => {
+          alertMessage.classList.add("hidden");
+        }, 2000);
       } else if (data.status === 500) {
         alertMessage.textContent = "Party name already exist."
         alertMessage.classList.remove("hidden");
