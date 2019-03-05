@@ -30,7 +30,7 @@ const signIn = e => {
       if (data.status === 200) {
         storeToken(data.data[0].token);
         redirect("https://oyekunle-mark.github.io/politico/user_home.html");
-      } else if (data.status === 401) {
+      } else {
         alertMessage.textContent = "Username or password incorrect";
         alert.classList.remove("hidden");
       }
